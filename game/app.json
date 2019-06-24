@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "appGame",
-    "slug": "app-game",
+    "name": "app-game",
+    "slug": "game",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
