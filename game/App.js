@@ -1,69 +1,74 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  ScrollView
-} from 'react-native';
- 
+import React, { Component } from "react";
+import { Button } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
+
 export default class GridLayout extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <ScrollView>
+        <ScrollView>
           <View style={styles.row}>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
           </View>
 
           <View style={styles.row}>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
           </View>
 
           <View style={styles.row}>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
           </View>
 
           <View style={styles.row}>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
-            <View style={[styles.box]}></View>
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]} />
+            <View style={[styles.box]}>
+              <Button
+                onPress={() => alert('Hi')}
+                title="Learn More"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+              />
+            </View>
           </View>
-          </ScrollView>
+        </ScrollView>
       </View>
     );
   }
 }
- 
- 
+
 const styles = StyleSheet.create({
   row: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginBottom: 5
   },
   box: {
     flex: 1,
     height: 100,
-    backgroundColor: '#333',
+    backgroundColor: "#333",
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   box2: {
-    backgroundColor: 'green'
+    backgroundColor: "green"
   },
   box3: {
-    backgroundColor: 'orange'
+    backgroundColor: "orange"
   },
   two: {
     flex: 2
