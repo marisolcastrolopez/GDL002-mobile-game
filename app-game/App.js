@@ -1,34 +1,39 @@
 import React from "react";
 import { Header } from "react-native-elements";
-import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, Text, View, FlatList, Dimensions, Button } from "react-native";
 
 const data = [
-  { key: "A" },
-  { key: "B" },
-  { key: "C" },
-  { key: "D" },
-  { key: "E" },
-  { key: "F" },
-  { key: "G" },
-  { key: "H" },
-  { key: "I" },
-  { key: "J" },
-  { key: "K" },
-  { key: "L" },
-  { key: "M" },
-  { key: "N" },
-  { key: "0" },
-  { key: "P" },
-  { key: "Q" },
-  { key: "R" },
-  { key: "S" },
-  { key: "T" },
-  { key: "U" },
-  { key: "V" },
-  { key: "W" },
-  { key: "X" },
-  { key: "Y" },
-  { key: "Z" },
+  { key: <Icon key="1" name="heart" size={30} color="#11A0FF" /> },
+  { key: <Icon key="2" name="cloud" size={30} color="#7D26FF" /> },
+  { key: <Icon key="3" name="star" size={30} color="#FF9837" /> },
+  { key: <Icon key="4" name="certificate" size={30} color="#FF50CE" /> },
+  { key: <Icon key="5" name="user" size={30} color="#FFD323" /> },
+  { key: <Icon key="6" name="square" size={30} color="#63E2DC" /> },
+  { key: <Icon key="7" name="circle" size={30} color="#304BFC" />  },
+  { key: <Icon key="8" name="paw" size={30} color="#2AC427" />  },
+  { key: <Icon key="9" name="close" size={30} color="#11A0FF" /> },
+  { key: <Icon key="10" name="leaf" size={30} color="#304BFC" /> },
+  { key: <Icon key="11" name="lock" size={30} color="#FF50CE" /> },
+  { key: <Icon key="12" name="cloud" size={30} color="#FF50CE" /> },
+  { key: <Icon key="13" name="certificate" size={30} color="#2AC427" /> },
+  { key: <Icon key="14" name="star" size={30} color="#304BFC" /> },
+  { key: <Icon key="15" name="heart" size={30} color="#FF50CE" /> },
+  { key: <Icon key="16" name="circle" size={30} color="#11A0FF" /> },
+  { key: <Icon key="17" name="paw" size={30} color="#7D26FF" /> },
+  { key: <Icon key="18" name="circle" size={30} color="#FF9837" /> },
+  { key: <Icon key="19" name="user" size={30} color="#FF50CE" /> },
+  { key: <Icon key="20" name="asterisk" size={30} color="#11A0FF" /> },
+  { key: <Icon key="21" name="square" size={30} color="#7D26FF" />  },
+  { key: <Icon key="22" name="heart" size={30} color="#FF9837" /> },
+  { key: <Icon key="23" name="close" size={30} color="#FF50CE" /> },
+  { key: <Icon key="24" name="user" size={30} color="#7D26FF" /> },
+  { key: <Icon key="25" name="lock" size={30} color="#FFD323" /> },
+  { key: <Icon key="26" name="asterisk" size={30} color="#2AC427" /> },
+  { key: <Icon key="27" name="heart" size={30} color="#2AC427" /> },
+  { key: <Icon key="28" name="circle" size={30} color="#FF50CE" /> },
+  { key: <Icon key="29" name="paw" size={30} color="#FFD323" /> },
+  { key: <Icon key="30" name="certificate" size={30} color="#304BFC" /> },
 ];
 
 const formatData = (data, numColumns) => {
@@ -54,14 +59,13 @@ export default class App extends React.Component {
     }
     return (
       <View style={styles.item}>
-        <Text style={styles.itemText}>{item.key}</Text>
+        <Text style={styles.itemText} key={index}>{item.key}</Text>
       </View>
     );
   };
 
   render() {
     return (
-      
         <FlatList
           data={formatData(data, numColumns)}
           style={styles.container}
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
     marginVertical: 20
   },
   item: {
-    backgroundColor: "#4D243D",
+    backgroundColor: "#000000",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
@@ -143,150 +147,7 @@ const styles = StyleSheet.create({
 //           justifyContent: "space-around"
 //         }}
 //       />
-//       <View style={styles.containerStyle}>
-//         {/* 1 First Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="heart" size={30} color="#11A0FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="cloud" size={30} color="#7D26FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="star" size={30} color="#FF9837" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="certificate" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//         {/* 2 Second Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="user" size={30} color="#FFD323" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="square" size={30} color="#63E2DC" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="circle" size={30} color="#304BFC" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="paw" size={30} color="#2AC427" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//         {/* 3 First Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="close" size={30} color="#11A0FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="leaf" size={30} color="#304BFC" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="asterisk" size={30} color="#304BFC" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="lock" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//         {/* 4 First Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="cloud" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="certificate" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="star" size={30} color="#FF9837" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="heart" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//         {/* 5 First Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="circle" size={30} color="#11A0FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="paw" size={30} color="#7D26FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="circle" size={30} color="#FF9837" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="user" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//         {/* 6 First Line */}
-//         <Grid>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="asterisk" size={30} color="#11A0FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="square" size={30} color="#7D26FF" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="heart" size={30} color="#FF9837" />
-//             </Text>
-//           </Col>
-//           <Col>
-//             <Text style={styles.icons}>
-//               <Icon name="close" size={30} color="#FF50CE" />
-//             </Text>
-//           </Col>
-//         </Grid>
-//       </View>
-//     </View>
-//     </View>
-//   );
-// }
+
 
 // const styles = StyleSheet.create({
 //   icons: {
