@@ -10,7 +10,7 @@ export default class FirstStartGame extends Component {
     const { navigate } = this.props.navigation;
     return (
       <Button
-        title="Go to Jane's profile"
+        title="Start Game"
         onPress={() => navigate("SecondPlayGame", { screen: SecondPlayGame })}
       />
     );
