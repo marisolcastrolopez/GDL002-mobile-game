@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-native";
 import { StyleSheet, View, ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class GridLayout extends Component {
   render() {
@@ -8,36 +9,155 @@ export default class GridLayout extends Component {
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.row}>
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-          </View>
-
-          <View style={styles.row}>
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-          </View>
-
-          <View style={styles.row}>
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-          </View>
-
-          <View style={styles.row}>
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
-            <View style={[styles.box]} />
             <View style={[styles.box]}>
-              <Button
-                onPress={() => alert('Hi')}
-                title="Learn More"
-                color="#841584"
-                accessibilityLabel="Learn more about this purple button"
+              <Icon.Button
+                name="circle"
+                size={30}
+                color="#11A0FF"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="heart"
+                size={30}
+                color="#FF50CE"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="star"
+                size={30}
+                color="#304BFC"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="certificate"
+                size={30}
+                color="#2AC427"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="cloud"
+                size={30}
+                color="#FF50CE"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="heart"
+                size={30}
+                color="#11A0FF"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="lock"
+                size={30}
+                color="#FF50CE"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="leaf"
+                size={30}
+                color="#304BFC"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="paw" size={30} color="#FFD323"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="paw"
+                size={30}
+                color="#2AC427"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="circle"
+                size={30}
+                color="#304BFC"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="user"
+                size={30}
+                color="#FFD323"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="certificate"
+                size={30}
+                color="#FF50CE"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="star"
+                size={30}
+                color="#FF9837"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="cloud"
+                size={30}
+                color="#7D26FF"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
+              />
+            </View>
+            <View style={[styles.box]}>
+              <Icon.Button
+                name="heart"
+                size={30}
+                color="#11A0FF"
+                backgroundColor="transparent"
+                onPress={() => alert("Hi")}
               />
             </View>
           </View>
@@ -61,8 +181,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   box2: {
     backgroundColor: "green"
