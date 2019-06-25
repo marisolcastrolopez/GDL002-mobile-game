@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button } from "react-native";
 import { StyleSheet, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import CountDown from "react-native-countdown-component";
 
 export default class GridLayout extends Component {
   state = {
@@ -20,6 +20,7 @@ export default class GridLayout extends Component {
         <View style={[styles.header]} />
         <ScrollView>
           <View style={[styles.row, styles.scrollViewMargin]}>
+ 
             <View style={[styles.box]}>
               <Icon.Button
                 name="circle"
@@ -175,6 +176,14 @@ export default class GridLayout extends Component {
               />
             </View>
           </View>
+          <View style={styles.timerViewMargin}>
+          <CountDown
+                  until={1000}
+                  onFinish={() => alert("finished")}
+                  onPress={() => alert("hello")}
+                  size={20}
+                />
+          </View>
         </ScrollView>
       </View>
     );
@@ -197,7 +206,10 @@ const styles = StyleSheet.create({
     zIndex: 10
   },
   scrollViewMargin: {
-    marginTop: 90
+    marginTop: 60
+  },
+  timerViewMargin: {
+    marginBottom: 20
   },
   row: {
     flex: 1,
