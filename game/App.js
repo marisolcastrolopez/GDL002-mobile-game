@@ -4,17 +4,29 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class GridLayout extends Component {
+  state = {
+    loading: false,
+    data: [],
+    fav: false
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <View style={styles.container}>
+        <View style={[styles.header]} />
         <ScrollView>
-          <View style={styles.row}>
+          <View style={[styles.row, styles.scrollViewMargin]}>
             <View style={[styles.box]}>
               <Icon.Button
                 name="circle"
                 size={30}
                 color="#11A0FF"
                 backgroundColor="transparent"
+                underlayColor="transparent"
                 onPress={() => alert("Hi")}
               />
             </View>
@@ -89,7 +101,9 @@ export default class GridLayout extends Component {
           <View style={styles.row}>
             <View style={[styles.box]}>
               <Icon.Button
-                name="paw" size={30} color="#FFD323"
+                name="paw"
+                size={30}
+                color="#FFD323"
                 backgroundColor="transparent"
                 onPress={() => alert("Hi")}
               />
@@ -168,6 +182,23 @@ export default class GridLayout extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center"
+  },
+  header: {
+    height: 65,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    backgroundColor: "#03A9F4",
+    zIndex: 10
+  },
+  scrollViewMargin: {
+    marginTop: 90
+  },
   row: {
     flex: 1,
     flexDirection: "row",
@@ -177,7 +208,7 @@ const styles = StyleSheet.create({
   box: {
     flex: 1,
     height: 100,
-    backgroundColor: "#333",
+    backgroundColor: "transparent",
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
