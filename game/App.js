@@ -20,7 +20,6 @@ export default class GridLayout extends Component {
         <View style={[styles.header]} />
         <ScrollView>
           <View style={[styles.row, styles.scrollViewMargin]}>
- 
             <View style={[styles.box]}>
               <Icon.Button
                 name="circle"
@@ -177,12 +176,15 @@ export default class GridLayout extends Component {
             </View>
           </View>
           <View style={styles.timerViewMargin}>
-          <CountDown
-                  until={1000}
-                  onFinish={() => alert("finished")}
-                  onPress={() => alert("hello")}
-                  size={20}
-                />
+            <CountDown
+              until={30}
+              size={30}
+              onFinish={() => alert("Finished")}
+              digitStyle={{ backgroundColor: "#FFF" }}
+              digitTxtStyle={{ color: "#1CC625" }}
+              timeToShow={["S"]}
+              timeLabels={{ s: "Seconds" }}
+            />
           </View>
         </ScrollView>
       </View>
