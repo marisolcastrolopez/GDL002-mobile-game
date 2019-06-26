@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import CountDown from "react-native-countdown-component";
 import CountdownGame from "./CountdownGame";
 
 export default class FiguresCountdown extends Component {

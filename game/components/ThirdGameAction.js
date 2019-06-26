@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { Text, StyleSheet, View, ScrollView } from "react-native";
 import FiguresCountdown from "./FiguresCountdown";
 
-export default class GridLayout extends Component {
+export default class SecondPlayGame extends Component {
   state = {
     loading: false,
     data: [],

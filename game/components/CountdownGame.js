@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import CountDown from "react-native-countdown-component";
+import { Text, Button } from "react-native";
 // import { StyleSheet, View, ScrollView } from "react-native";
 // import Icon from "react-native-vector-icons/FontAwesome";
+
+
+
 
 export default class CountdownGame extends Component {
   render() {
