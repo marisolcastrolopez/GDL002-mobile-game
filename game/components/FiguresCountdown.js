@@ -2,9 +2,21 @@ import React, { Component } from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountdownGame from "./CountdownGame";
+// import ModalExample from "./ModalExample";
 
 export default class FiguresCountdown extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      points: 0
+    };
+  }
+  addPoints = () => {
+    console.log('test');
+  };
   render() {
+    const points = this.state.points;
     return (
       <>
       <View style={[styles.row, styles.scrollViewMargin]}>
@@ -164,8 +176,12 @@ export default class FiguresCountdown extends Component {
         </View>
       </View>
       <View style={styles.timerViewMargin}>
-        <CountdownGame/>
+        {/* <CountdownGame/> */}
+
       </View>
+      {/* <View>
+      <ModalExample/>
+      </View> */}
     </>
     );
   }

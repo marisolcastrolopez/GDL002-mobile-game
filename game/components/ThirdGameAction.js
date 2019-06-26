@@ -3,16 +3,16 @@ import { Text, StyleSheet, View, ScrollView } from "react-native";
 import FiguresCountdown from "./FiguresCountdown";
 
 export default class SecondPlayGame extends Component {
-  state = {
-    loading: false,
-    data: [],
-    fav: false
-  };
-
   constructor(props) {
     super(props);
-  }
 
+    this.state = {
+      points: 0
+    };
+  }
+  addPoints = () => {
+    console.log('test');
+  };
   render() {
     return (
       <View style={styles.container}>
