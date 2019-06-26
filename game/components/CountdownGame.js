@@ -5,8 +5,6 @@ import { Text, Button } from "react-native";
 // import Icon from "react-native-vector-icons/FontAwesome";
 
 
-
-
 export default class CountdownGame extends Component {
   render() {
     return (

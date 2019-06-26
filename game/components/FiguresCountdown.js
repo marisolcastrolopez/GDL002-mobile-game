@@ -19,10 +19,10 @@ export default class FiguresCountdown extends Component {
           />
         </View>
         <View style={[styles.box]}>
-          <Icon.Button
-            name="heart"
+        <Icon.Button
+            name="cloud"
             size={30}
-            color="#FF50CE"
+            color="#7D26FF"
             backgroundColor="transparent"
             onPress={() => alert("Hi")}
           />
@@ -145,10 +145,10 @@ export default class FiguresCountdown extends Component {
           />
         </View>
         <View style={[styles.box]}>
-          <Icon.Button
-            name="cloud"
+        <Icon.Button
+            name="heart"
             size={30}
-            color="#7D26FF"
+            color="#FF50CE"
             backgroundColor="transparent"
             onPress={() => alert("Hi")}
           />
