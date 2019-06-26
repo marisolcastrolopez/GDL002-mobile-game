@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountdownGame from "./CountdownGame";
-// import ModalExample from "./ModalExample";
+import ModalExample from "./ModalExample";
 
 export default class FiguresCountdown extends Component {
   constructor(props) {
@@ -12,9 +12,18 @@ export default class FiguresCountdown extends Component {
       points: 0
     };
   }
-  addPoints = () => {
-    console.log('test');
+  handleAddPoints = () => {
+    this.setState({
+      count: this.state.points + 1
+    });
   };
+
+  handleWrongAnswer = () => {
+    this.setState({
+      count: this.state.points + 1
+    });
+  };
+
   render() {
     const points = this.state.points;
     return (
@@ -27,7 +36,20 @@ export default class FiguresCountdown extends Component {
             color="#11A0FF"
             backgroundColor="transparent"
             underlayColor="transparent"
-            onPress={() => alert("Hi")}
+            onPress={() => Alert.alert(
+  'Alert Title',
+  'My Alert Msg',
+  [
+    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+    {
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel',
+    },
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ],
+  {cancelable: false},
+)}
           />
         </View>
         <View style={[styles.box]}>
