@@ -1,10 +1,10 @@
 // import React, { Component } from "react";
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
 import FirstStartGame from "./FirstStartGame";
 import SecondPlayGame from "./SecondPlayGame";
 import ThirdPlayGame from "./ThirdPlayGame";
 
-const MainNavigator = createStackNavigator({
+const MainNavigator = createSwitchNavigator({
   FirstStartGame: {screen: FirstStartGame},
   SecondPlayGame: {screen: SecondPlayGame},
   ThirdPlayGame: {screen: ThirdPlayGame},
