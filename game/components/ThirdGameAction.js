@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 import FiguresCountdown from "./FiguresCountdown";
+import Test from "./Test"
 
 export default class SecondPlayGame extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ export default class SecondPlayGame extends Component {
       <View style={styles.container}>
         <View style={[styles.header]} />
         <ScrollView>
-          <FiguresCountdown />
+          {/* <FiguresCountdown /> */}
+          <Test/>
         </ScrollView>
       </View>
     );

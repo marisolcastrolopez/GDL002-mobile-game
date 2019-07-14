@@ -24,16 +24,16 @@ export default class FiguresCountdown extends Component {
   //   };
   // }
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
+    super(props);
+    this.state = { count: 0 };
   }
 
-  onPress = () => {
-    this.setState({
-      count: this.state.count+1
-    })
-  }
   handleAddPoints = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+  handleAddPoints222 = () => {
     this.setState({
       count: this.state.points + 1
     });
@@ -214,25 +214,30 @@ export default class FiguresCountdown extends Component {
           <Button title="Show modal" onPress={this.toggleModal} />
           <Modal isVisible={this.state.isModalVisible}>
             <View style={{ flex: 1 }}>
-              <Text style={{color: "white"}}>Woops! Wrong Answer</Text>
+              <Text style={{ color: "white" }}>Woops! Wrong Answer</Text>
               <Button title="Hide modal" onPress={this.toggleModal} />
             </View>
           </Modal>
         </View>
         {/*Touchable opacity added*/}
-        <View style={styles.container2}>
-       <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-       >
-         <Text> Touch Here </Text>
-       </TouchableOpacity>
-       <View style={[styles.countContainer]}>
-         <Text style={[styles.countText]}>
-            { this.state.count !== 0 ? this.state.count: null}
-          </Text>
+        <View>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.handleAddPoints}
+          >
+            <Icon
+              name="certificate"
+              size={30}
+              color="#FF50CE"
+              backgroundColor="transparent"
+            />
+          </TouchableOpacity>
+          <View style={[styles.countContainer]}>
+            <Text style={[styles.countText]}>
+              {this.state.count !== 0 ? this.state.count : null}
+            </Text>
+          </View>
         </View>
-      </View>
       </>
     );
   }
@@ -285,19 +290,19 @@ const styles = StyleSheet.create({
   },
   container2: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: 10
   },
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
     padding: 10
   },
   countContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     padding: 10
   },
   countText: {
-    color: '#FF00FF'
+    color: "#FF00FF"
   }
 });
