@@ -1,19 +1,37 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView, Alert, Button, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  Alert,
+  Button,
+  Text,
+  AppRegistry,
+  TouchableOpacity
+} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountdownGame from "./CountdownGame";
 import ModalExample from "./ModalExample";
 import Modal from "react-native-modal";
 
 export default class FiguresCountdown extends Component {
-  
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      points: 0,
-      isModalVisible: false
-    };
+  //   this.state = {
+  //     points: 0,
+  //     isModalVisible: false
+  //   };
+  // }
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
+
+  onPress = () => {
+    this.setState({
+      count: this.state.count+1
+    })
   }
   handleAddPoints = () => {
     this.setState({
@@ -25,7 +43,7 @@ export default class FiguresCountdown extends Component {
   };
 
   handleWrongAnswer = () => {
-    navigate("FirstStartGame", { screen: FirstStartGame })
+    navigate("FirstStartGame", { screen: FirstStartGame });
   };
 
   render() {
@@ -192,14 +210,28 @@ export default class FiguresCountdown extends Component {
         {/* <View>
       <ModalExample/>
       </View> */}
-      <View style={{ flex: 1 }}>
-        <Button title="Show modal" onPress={this.toggleModal} />
-        <Modal isVisible={this.state.isModalVisible}>
-          <View style={{ flex: 1 }}>
-            <Text>Hello!</Text>
-            <Button title="Hide modal" onPress={this.toggleModal} />
-          </View>
-        </Modal>
+        <View style={{ flex: 1 }}>
+          <Button title="Show modal" onPress={this.toggleModal} />
+          <Modal isVisible={this.state.isModalVisible}>
+            <View style={{ flex: 1 }}>
+              <Text style={{color: "white"}}>Woops! Wrong Answer</Text>
+              <Button title="Hide modal" onPress={this.toggleModal} />
+            </View>
+          </Modal>
+        </View>
+        {/*Touchable opacity added*/}
+        <View style={styles.container2}>
+       <TouchableOpacity
+         style={styles.button}
+         onPress={this.onPress}
+       >
+         <Text> Touch Here </Text>
+       </TouchableOpacity>
+       <View style={[styles.countContainer]}>
+         <Text style={[styles.countText]}>
+            { this.state.count !== 0 ? this.state.count: null}
+          </Text>
+        </View>
       </View>
       </>
     );
@@ -250,5 +282,22 @@ const styles = StyleSheet.create({
   },
   two: {
     flex: 2
+  },
+  container2: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
+  countContainer: {
+    alignItems: 'center',
+    padding: 10
+  },
+  countText: {
+    color: '#FF00FF'
   }
 });
