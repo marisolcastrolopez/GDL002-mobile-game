@@ -28,22 +28,35 @@ const formatData = (data, numColumns) => {
 
 const numColumns = 2;
 
-export default class Test extends Component {
+export default class Level01 extends Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 0
     };
   }
+  componentDidMount() {
+    console.log("this.props.navigation.count", this.props.navigation.count)
+  }
+  handleAddPoints = () => {
+    this.setState({
+      count: this.props.navigation.count + 1
+    });
+  };
 
-  // handleAddPoints = () => {
-  //   this.setState({
-  //     count: this.state.count + 1
-  //   });
-  // };
+  correctAnswer = (item) => {
+    const { navigate } = this.props.navigation;
+    const { count } = this.props;
+    // navigate(item.topage, { screen: item.topage });
+    // const counter = count.state.params('count', 'count');
+    // console.log(JSON.stringify(counter));
+    // this.setState({
+    //   count: this.props.navigation.count + 1
+    // });
+
+   }
 
   renderItem = ({ item }) => {
-    const { navigate } = this.props.navigation;
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
@@ -51,7 +64,7 @@ export default class Test extends Component {
       <View style={styles.item}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate(item.topage, { screen: item.topage })}
+          onPress={() => this.correctAnswer(item)}
         >
           <Icon
             name={item.name}
@@ -76,6 +89,7 @@ export default class Test extends Component {
         />
         <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
+            {/* {this.state.count} */}
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View>

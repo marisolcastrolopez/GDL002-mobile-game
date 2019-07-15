@@ -6,6 +6,10 @@ import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class SecondShowFigure extends Component {
+  componentDidMount() {
+    // console.log("this.props.navigation.count", this.props.navigation.count)
+    // Alert.alert('',JSON.stringify(this.props.navigation.state.params))
+  }
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -37,7 +41,7 @@ export default class SecondShowFigure extends Component {
         {/* <CountDown
             until={5}
             size={30}
-            onFinish={() => navigate("ThirdGameAction", { screen: ThirdGameAction })}
+            onFinish={() => navigate("Level01", { screen: Level01 })}
             digitStyle={{ backgroundColor: "#FFF" }}
             digitTxtStyle={{ color: "#1CC625" }}
             timeToShow={["S"]}

@@ -4,9 +4,13 @@ import SecondShowFigure from "../ui02memorize/SecondShowFigure";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class FirstStartGame extends Component {
-
+  componentDidMount() {
+    // console.log("this.props.navigation.count", this.props.navigation.state.param.count)
+  }
   render() {
     const { navigate } = this.props.navigation;
+    const { params } = this.props.navigation.state;
+    console.log('params', params)
     return (
       <View style={{marginTop: 50 }}>
       <Button
@@ -14,6 +18,7 @@ export default class FirstStartGame extends Component {
         onPress={() => navigate("SecondShowFigure", { screen: SecondShowFigure })}
       />
       </View>
+
     );
   }
 }
