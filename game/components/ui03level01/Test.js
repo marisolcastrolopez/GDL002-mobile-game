@@ -9,13 +9,8 @@ import {
   Button
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import data from "../Data/data01level"
 
-const data = [
-  { key: "0", name: "certificate", color: "#FF50CE", answer: true, topage: "FirstStartGame" },
-  { key: "1", name: "cloud", color: "#FF50CE", answer: false, topage: "SecondShowFigure" },
-  { key: "2", name: "certificate", color: "#FF50CE", answer: false, topage: "SecondShowFigure" },
-  { key: "3", name: "certificate", color: "#FF50CE", answer: false, topage: "SecondShowFigure" }
-];
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -26,6 +21,7 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
+  data.sort(() => Math.random() - 0.5);
   return data;
 };
 
@@ -35,7 +31,7 @@ export default class Test extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      count: 0
     };
   }
 
@@ -52,7 +48,10 @@ export default class Test extends Component {
     }
     return (
       <View style={styles.item}>
-        <TouchableOpacity style={styles.button} onPress={() => navigate(item.topage, { screen: item.topage })}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigate(item.topage, { screen: item.topage })}
+        >
           <Icon
             name={item.name}
             size={30}
@@ -79,13 +78,6 @@ export default class Test extends Component {
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View>
-        {/* <Icon
-            name="certificate"
-            size={30}
-            color="pink"
-            backgroundColor="transparent"
-            onPress={this.navigatetoPage(data)}
-          /> */}
       </Fragment>
     );
   }
@@ -122,7 +114,7 @@ const styles = StyleSheet.create({
   countText: {
     color: "#FF00FF"
   },
-  iconTransparent:{
-    backgroundColor: "transparent",
+  iconTransparent: {
+    backgroundColor: "transparent"
   }
 });
