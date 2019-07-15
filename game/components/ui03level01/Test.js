@@ -9,18 +9,12 @@ import {
   Button
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { StackNavigator } from 'react-navigation';
-import SecondShowFigure from "../ui02memorize/SecondShowFigure";
-import FirstStartGame from "../ui01start/FirstStartGame";
 
 const data = [
-  { key: "A", name: "certificate", color: "#FF50CE", answer: true, key: 0, topage: "FirstStartGame" },
-  { key: "B", name: "cloud", color: "#FF50CE", answer: false, key: 1, topage: "SecondShowFigure" },
-  { key: "C", name: "certificate", color: "#FF50CE", answer: false, key: 2, topage: "SecondShowFigure" },
-  { key: "D", name: "certificate", color: "#FF50CE", answer: false, key: 3, topage: "SecondShowFigure" }
-  //   { key: 'E' }, { key: 'F' }, { key: 'G' }, { key: 'H' }, { key: 'I' }, { key: 'J' },
-  //   { key: 'K' },
-  //   { key: 'L' },
+  { key: "0", name: "certificate", color: "#FF50CE", answer: true, topage: "FirstStartGame" },
+  { key: "1", name: "cloud", color: "#FF50CE", answer: false, topage: "SecondShowFigure" },
+  { key: "2", name: "certificate", color: "#FF50CE", answer: false, topage: "SecondShowFigure" },
+  { key: "3", name: "certificate", color: "#FF50CE", answer: false, topage: "SecondShowFigure" }
 ];
 
 const formatData = (data, numColumns) => {
@@ -51,30 +45,19 @@ export default class Test extends Component {
   //   });
   // };
 
-  // navigatetoPage = (data) => {
-
-  //     const page = data.answer == true ?  SecondShowFigure : FirstStartGame;
-  //      this.props.navigation.navigate(`${page}`, { screen: page });
-  //  }
-
-  renderItem = ({ item, index }) => {
+  renderItem = ({ item }) => {
     const { navigate } = this.props.navigation;
-    // const page = item.answer === true ?  SecondShowFigure : FirstStartGame;
-
-    // console.log(page);
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
       <View style={styles.item}>
-        <Text style={styles.itemText}>{item.key}</Text>
-        <Text style={styles.itemText}>{item.name}</Text>
         <TouchableOpacity style={styles.button} onPress={() => navigate(item.topage, { screen: item.topage })}>
           <Icon
             name={item.name}
             size={30}
             color={item.color}
-            backgroundColor="transparent"
+            style={styles.iconTransparent}
           />
         </TouchableOpacity>
       </View>
@@ -82,7 +65,6 @@ export default class Test extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Fragment>
         <FlatList
@@ -139,5 +121,8 @@ const styles = StyleSheet.create({
   },
   countText: {
     color: "#FF00FF"
+  },
+  iconTransparent:{
+    backgroundColor: "transparent",
   }
 });

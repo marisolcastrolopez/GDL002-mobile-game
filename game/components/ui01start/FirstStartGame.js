@@ -13,13 +13,6 @@ export default class FirstStartGame extends Component {
         title="Start Game"
         onPress={() => navigate("SecondShowFigure", { screen: SecondShowFigure })}
       />
-       <Icon
-            name="certificate"
-            size={30}
-            color="pink"
-            backgroundColor="transparent"
-            onPress={() => navigate("SecondShowFigure", { screen: SecondShowFigure })}
-          />
       </View>
     );
   }
