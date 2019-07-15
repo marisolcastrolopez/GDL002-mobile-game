@@ -5,13 +5,12 @@ import {
   View,
   FlatList,
   Dimensions,
-  TouchableOpacity,
-  Button
+  TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountdownGame from "../Countdown/CountdownGame";
-import data from "../Data/data01level"
-
+import data from "../Data/data01level";
+import GameSpa from "../GameSpa/GameSpa"
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -28,7 +27,7 @@ const formatData = (data, numColumns) => {
 
 const numColumns = 2;
 
-export default class Test extends Component {
+export default class Level01 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,14 +35,7 @@ export default class Test extends Component {
     };
   }
 
-  // handleAddPoints = () => {
-  //   this.setState({
-  //     count: this.state.count + 1
-  //   });
-  // };
-
   renderItem = ({ item }) => {
-    const { navigate } = this.props.navigation;
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
@@ -51,7 +43,7 @@ export default class Test extends Component {
       <View style={styles.item}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigate(item.topage, { screen: item.topage })}
+          onClick={() => this.props.parentMethod('Hello from child')}
         >
           <Icon
             name={item.name}
@@ -63,7 +55,6 @@ export default class Test extends Component {
       </View>
     );
   };
-
   render() {
     return (
       <Fragment>
