@@ -1,13 +1,13 @@
 // import React, { Component } from "react";
 import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
-import FirstStartGame from "./FirstStartGame";
-import SecondShowFigure from "./SecondShowFigure";
-import ThirdGameAction from "./ThirdGameAction";
+import FirstStartGame from "./ui01start/FirstStartGame";
+import SecondShowFigure from "./ui02memorize/SecondShowFigure";
+import Test from "./ui03level01/Test";
 
 const MainNavigator = createSwitchNavigator({
   FirstStartGame: {screen: FirstStartGame},
   SecondShowFigure: {screen: SecondShowFigure},
-  ThirdGameAction: {screen: ThirdGameAction},
+  Test: {screen: Test},
 },
 {
   initialRouteName: "FirstStartGame"

@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Text, Button, View, StyleSheet } from "react-native";
 // import FiguresCountdown from "./FiguresCountdown";
-import ThirdGameAction from "./ThirdGameAction";
+import Test from "../ui03level01/Test";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -9,7 +9,7 @@ export default class SecondShowFigure extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <>
+      <Fragment>
        <Text style={[styles.centering]}>Time to memorize!</Text>
       <View style={[styles.row]}>
         <View style={[styles.box]}>
@@ -45,11 +45,11 @@ export default class SecondShowFigure extends Component {
           /> */}
           <Button
           title="Skip time"
-          onPress={() => navigate("ThirdGameAction", { screen: ThirdGameAction })}
+          onPress={() => navigate("Test", { screen: Test })}
         />
         </View>
       </View>
-      </>
+      </Fragment>
     );
   }
 }

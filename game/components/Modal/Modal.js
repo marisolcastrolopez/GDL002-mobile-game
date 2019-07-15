@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "./node_modules/react";
 import { Button, Text, View } from "react-native";
 import Modal from "react-native-modal";
 

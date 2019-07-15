@@ -10,8 +10,8 @@ import {
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import CountdownGame from "./CountdownGame";
-import ModalExample from "./ModalExample";
+import CountdownGame from "../Countdown/CountdownGame";
+import ModalExample from "../Modal/ModalExample";
 import Modal from "react-native-modal";
 
 export default class FiguresCountdown extends Component {

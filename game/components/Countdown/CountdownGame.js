@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import CountDown from "react-native-countdown-component";
 import { Text, Button } from "react-native";
 // import { StyleSheet, View, ScrollView } from "react-native";
@@ -8,7 +8,7 @@ import { Text, Button } from "react-native";
 export default class CountdownGame extends Component {
   render() {
     return (
-        <>
+        <Fragment>
           <CountDown
             until={30}
             size={30}
@@ -18,7 +18,7 @@ export default class CountdownGame extends Component {
             timeToShow={["S"]}
             timeLabels={{ s: "Seconds" }}
           />
-          </>
+          </Fragment>
     );
   }
 }
