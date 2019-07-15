@@ -42,7 +42,7 @@ export default class GameSpa extends Component {
             <Text>Hola 2</Text>
           </View>
         )}
-        {this.state.buttonId !== 1 && this.state.buttonId !== 2 && <Level01 parentMethod={() => this.parentMethod()} ></Level01>}
+        {this.state.buttonId !== 1 && this.state.buttonId !== 2 && <Level01 setButton={() => this.setButton(1)} ></Level01>}
         <input
           onClick={() => this.setButton(1)}
           value="Next Level"

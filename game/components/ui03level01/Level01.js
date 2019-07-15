@@ -43,7 +43,7 @@ export default class Level01 extends Component {
       <View style={styles.item}>
         <TouchableOpacity
           style={styles.button}
-          onClick={() => this.props.parentMethod('Hello from child')}
+          onClick={() => this.props.setButton(1)}
         >
           <Icon
             name={item.name}
