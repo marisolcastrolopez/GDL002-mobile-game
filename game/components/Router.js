@@ -2,12 +2,12 @@
 import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
 import FirstStartGame from "./ui01start/FirstStartGame";
 import SecondShowFigure from "./ui02memorize/SecondShowFigure";
-import Test from "./ui03level01/Test";
+import Level01 from "./ui03level01/Level01";
 
 const MainNavigator = createSwitchNavigator({
   FirstStartGame: {screen: FirstStartGame},
   SecondShowFigure: {screen: SecondShowFigure},
-  Test: {screen: Test},
+  Level01: {screen: Level01},
 },
 {
   initialRouteName: "FirstStartGame"

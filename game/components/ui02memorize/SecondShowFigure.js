@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Text, Button, View, StyleSheet } from "react-native";
 // import FiguresCountdown from "./FiguresCountdown";
-import Test from "../ui03level01/Test";
+import Level01 from "../ui03level01/Level01";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -45,7 +45,7 @@ export default class SecondShowFigure extends Component {
           /> */}
           <Button
           title="Skip time"
-          onPress={() => navigate("Test", { screen: Test })}
+          onPress={() => navigate("Level01", { screen: Level01 })}
         />
         </View>
       </View>

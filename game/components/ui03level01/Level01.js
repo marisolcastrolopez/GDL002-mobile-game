@@ -9,6 +9,7 @@ import {
   Button
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import CountdownGame from "../Countdown/CountdownGame";
 import data from "../Data/data01level"
 
 
@@ -78,6 +79,7 @@ export default class Test extends Component {
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View>
+        {/* <CountdownGame/> */}
       </Fragment>
     );
   }
@@ -90,6 +92,7 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: "#4D243D",
+    // backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
