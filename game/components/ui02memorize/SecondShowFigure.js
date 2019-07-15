@@ -4,6 +4,7 @@ import { Text, Button, View, StyleSheet } from "react-native";
 import Level01 from "../ui03level01/Level01";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/FontAwesome";
+import GameSpa from "../GameSpa/GameSpa"
 
 export default class SecondShowFigure extends Component {
   render() {
@@ -45,7 +46,7 @@ export default class SecondShowFigure extends Component {
           /> */}
           <Button
           title="Skip time"
-          onPress={() => navigate("Level01", { screen: Level01 })}
+          onPress={() => navigate("GameSpa", { screen: GameSpa })}
         />
         </View>
       </View>
