@@ -14,10 +14,10 @@ import SecondShowFigure from "../ui02memorize/SecondShowFigure";
 import FirstStartGame from "../ui01start/FirstStartGame";
 
 const data = [
-  { key: "A", name: "certificate", color: "#FF50CE", answer: true, key: 0 },
-  { key: "B", name: "cloud", color: "#FF50CE", answer: false, key: 1 },
-  { key: "C", name: "certificate", color: "#FF50CE", answer: false, key: 2 },
-  { key: "D", name: "certificate", color: "#FF50CE", answer: false, key: 3 }
+  { key: "A", name: "certificate", color: "#FF50CE", answer: true, key: 0, topage: "FirstStartGame" },
+  { key: "B", name: "cloud", color: "#FF50CE", answer: false, key: 1, topage: "SecondShowFigure" },
+  { key: "C", name: "certificate", color: "#FF50CE", answer: false, key: 2, topage: "SecondShowFigure" },
+  { key: "D", name: "certificate", color: "#FF50CE", answer: false, key: 3, topage: "SecondShowFigure" }
   //   { key: 'E' }, { key: 'F' }, { key: 'G' }, { key: 'H' }, { key: 'I' }, { key: 'J' },
   //   { key: 'K' },
   //   { key: 'L' },
@@ -40,9 +40,11 @@ const numColumns = 2;
 export default class Test extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = {
+      count: 0,
+    };
   }
-  navigate  = this.props.navigation;
+
   // handleAddPoints = () => {
   //   this.setState({
   //     count: this.state.count + 1
@@ -50,14 +52,16 @@ export default class Test extends Component {
   // };
 
   // navigatetoPage = (data) => {
+
   //     const page = data.answer == true ?  SecondShowFigure : FirstStartGame;
   //      this.props.navigation.navigate(`${page}`, { screen: page });
   //  }
 
   renderItem = ({ item, index }) => {
     const { navigate } = this.props.navigation;
-    const page = item.answer === true ?  SecondShowFigure : FirstStartGame;
-    console.log(page);
+    // const page = item.answer === true ?  SecondShowFigure : FirstStartGame;
+
+    // console.log(page);
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
@@ -65,13 +69,12 @@ export default class Test extends Component {
       <View style={styles.item}>
         <Text style={styles.itemText}>{item.key}</Text>
         <Text style={styles.itemText}>{item.name}</Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigate(item.topage, { screen: item.topage })}>
           <Icon
             name={item.name}
             size={30}
             color={item.color}
             backgroundColor="transparent"
-            onPress={() => navigate(`"${page}"`, { screen: page })}
           />
         </TouchableOpacity>
       </View>
