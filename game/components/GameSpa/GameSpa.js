@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import {
   Text,
-  View
+  View,
+  StyleSheet,
+  ScrollView
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
@@ -17,12 +19,12 @@ export default class GameSpa extends Component {
     };
     this.setButton = this.setButton.bind(this);
   }
-  componentDidMount() {
-    this.mounted = true;
-  }
-  componentWillUnmount() {
-    this.mounted = false;
-  }
+  // componentDidMount() {
+  //   this.mounted = true;
+  // }
+  // componentWillUnmount() {
+  //   this.mounted = false;
+  // }
 
   setButton(id) {
     this.setState({ buttonId: id });
@@ -30,7 +32,11 @@ export default class GameSpa extends Component {
 
   render() {
     return (
-      <View>
+      <>
+      <View style={styles.container}>
+        <View style={[styles.header]} />
+        <ScrollView>
+
         {this.state.buttonId === "level02" && (
           <View>
             <Text>Hola Ganaste</Text>
@@ -45,19 +51,71 @@ export default class GameSpa extends Component {
           //1° Level
           <GridGame setButton={(answer) => this.setButton(answer)} data={this.state.levelOneData} numColumns={this.state.twoColumn} />
         )}
-        <input
+        {/* <button
           onClick={() => this.setButton("level02")}
           value="Level 02"
           type="button"
           ref="button"
         />
-        <input
+        <button
           onClick={() => this.setButton("fail")}
           value="You lost"
           ref="button1"
           type="button"
-        />
+        /> */}
+        </ScrollView>
       </View>
+
+
+      </>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center"
+  },
+  header: {
+    height: 65,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    backgroundColor: "#03A9F4",
+    zIndex: 10
+  },
+  scrollViewMargin: {
+    marginTop: 60
+  },
+  timerViewMargin: {
+    marginBottom: 20
+  },
+  row: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 5
+  },
+  box: {
+    flex: 1,
+    height: 100,
+    backgroundColor: "transparent",
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 5,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  box2: {
+    backgroundColor: "green"
+  },
+  box3: {
+    backgroundColor: "orange"
+  },
+  two: {
+    flex: 2
+  }
+});

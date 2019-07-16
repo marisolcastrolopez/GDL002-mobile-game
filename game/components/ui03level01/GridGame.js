@@ -7,7 +7,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/AntDesign";
 import CountDown from "react-native-countdown-component";
 
 const formatData = (data, numColumns) => {
@@ -90,16 +90,29 @@ export default class GridGame extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20
+    margin: 40,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6
+    },
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+
+    elevation: 13,
+    overflow: 'hidden',
   },
   item: {
-    backgroundColor: "#4D243D",
-    // backgroundColor: "transparent",
+    // backgroundColor: "#4D243D",
+    backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
     margin: 1,
-    height: Dimensions.get("window").width / numColumns // approximate a square
+    // height: Dimensions.get("window").width / numColumns // approximate a square
+    height: 90,
+    overflow: 'hidden',
   },
   itemInvisible: {
     backgroundColor: "transparent"
@@ -114,7 +127,8 @@ const styles = StyleSheet.create({
   },
   countContainer: {
     alignItems: "center",
-    padding: 10
+    padding: 10,
+    overflow: 'hidden',
   },
   countText: {
     color: "#FF00FF"
