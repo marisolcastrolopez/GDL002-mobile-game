@@ -23,35 +23,36 @@ export default class GameSpa extends Component {
     };
     this.setButton = this.setButton.bind(this);
   }
+
   setButton(id) {
     this.setState({ buttonId: id });
   }
-  parentMethod = () =>{
-    console.log('parent method called :D');
-}
+
   render() {
     return (
       <View>
-        {this.state.buttonId === 1 && (
+        {this.state.buttonId === "level02" && (
           <View>
-            <Text>Hola 1</Text>
+            <Text>Hola Ganaste</Text>
           </View>
         )}
-        {this.state.buttonId === 2 && (
+        {this.state.buttonId === "fail" && (
           <View>
-            <Text>Hola 2</Text>
+            <Text>Hola Perdiste</Text>
           </View>
         )}
-        {this.state.buttonId !== 1 && this.state.buttonId !== 2 && <Level01 setButton={() => this.setButton(1)} ></Level01>}
+        {this.state.buttonId !== "level02" && this.state.buttonId !== "fail" && (
+          <Level01 setButton={(data) => this.setButton(data)} />
+        )}
         <input
-          onClick={() => this.setButton(1)}
-          value="Next Level"
+          onClick={() => this.setButton("level02")}
+          value="Level 02"
           type="button"
           ref="button"
         />
         <input
-          onClick={() => this.setButton(2)}
-          value="Contest"
+          onClick={() => this.setButton("fail")}
+          value="You lost"
           ref="button1"
           type="button"
         />
