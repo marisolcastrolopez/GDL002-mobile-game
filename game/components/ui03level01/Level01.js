@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent, Component } from "react";
+import React, { Fragment, Component } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CountdownGame from "../Countdown/CountdownGame";
-import data from "../Data/data01level";
-import GameSpa from "../GameSpa/GameSpa"
+import CountDown from "react-native-countdown-component";
+import GameSpa from "../GameSpa/GameSpa";
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -30,9 +30,17 @@ const numColumns = 2;
 export default class Level01 extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      count: 0
+      count: 0,
+      numColumns: this.props.numColumns
     };
+  }
+
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
   }
 
   renderItem = ({ item }) => {
@@ -56,21 +64,33 @@ export default class Level01 extends Component {
     );
   };
   render() {
+    let data = formatData(this.props.data, this.state.numColumns)
     return (
       <Fragment>
         <FlatList
-          data={formatData(data, numColumns)}
+          data={data}
           style={styles.container}
           renderItem={this.renderItem}
-          numColumns={numColumns}
-          keyExtractor={data.key}
+          numColumns={this.state.numColumns}
+          keyExtractor={this.props.data.key}
         />
+        {console.log('this.props',this.props.data)}
+        {console.log('this.props num',this.props.numColumns)}
         <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View>
         {/* <CountdownGame/> */}
+        <CountDown
+          until={6}
+          size={30}
+          onFinish={() => this.props.setButton("fail")}
+          digitStyle={{ backgroundColor: "#FFF" }}
+          digitTxtStyle={{ color: "#1CC625" }}
+          timeToShow={["S"]}
+          timeLabels={{ s: "Seconds" }}
+        />
       </Fragment>
     );
   }

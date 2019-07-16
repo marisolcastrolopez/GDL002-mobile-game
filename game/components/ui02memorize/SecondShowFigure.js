@@ -7,6 +7,13 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import GameSpa from "../GameSpa/GameSpa"
 
 export default class SecondShowFigure extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+  componentwillUnmount(){  clearInterval(<CountDown></CountDown>); }
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -35,15 +42,15 @@ export default class SecondShowFigure extends Component {
       </View>
       <View style={[styles.row]}>
         <View style={[styles.box]}>
-        {/* <CountDown
+        <CountDown
             until={5}
             size={30}
-            onFinish={() => navigate("ThirdGameAction", { screen: ThirdGameAction })}
+            onFinish={() => navigate("GameSpa", { screen: GameSpa })}
             digitStyle={{ backgroundColor: "#FFF" }}
             digitTxtStyle={{ color: "#1CC625" }}
             timeToShow={["S"]}
             timeLabels={{ s: "Seconds" }}
-          /> */}
+          />
           <Button
           title="Skip time"
           onPress={() => navigate("GameSpa", { screen: GameSpa })}
