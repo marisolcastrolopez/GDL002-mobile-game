@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   View,
-  ScrollView,
-  Alert,
   Button,
   Text,
-  AppRegistry,
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -15,14 +12,6 @@ import ModalExample from "../Modal/ModalExample";
 import Modal from "react-native-modal";
 
 export default class FiguresCountdown extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {
-  //     points: 0,
-  //     isModalVisible: false
-  //   };
-  // }
   constructor(props) {
     super(props);
     this.state = { count: 0 };

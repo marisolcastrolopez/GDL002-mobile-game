@@ -1,18 +1,9 @@
-import React, { Fragment, PureComponent, Component } from "react";
+import React, { Component } from "react";
 import {
-  StyleSheet,
   Text,
-  View,
-  FlatList,
-  Dimensions,
-  TouchableOpacity,
-  Button
+  View
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
-import CountdownGame from "../Countdown/CountdownGame";
-import data from "../Data/data01level";
-import renderIf from "./renderIf";
-import Level01 from "../ui03level01/Level01";
+import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
 
 export default class GameSpa extends Component {
@@ -22,7 +13,7 @@ export default class GameSpa extends Component {
       buttonId: null,
       count: 0,
       levelOneData: levelOneData,
-      twoColumn: 2
+      twoColumn: 3
     };
     this.setButton = this.setButton.bind(this);
   }
@@ -38,7 +29,6 @@ export default class GameSpa extends Component {
   }
 
   render() {
-    // let datalevel01 = data;
     return (
       <View>
         {this.state.buttonId === "level02" && (
@@ -52,7 +42,8 @@ export default class GameSpa extends Component {
           </View>
         )}
         {this.state.buttonId !== "level02" && this.state.buttonId !== "fail" && (
-          <Level01 setButton={(answer) => this.setButton(answer)} data={this.state.levelOneData} numColumns={this.state.twoColumn} />
+          //1° Level
+          <GridGame setButton={(answer) => this.setButton(answer)} data={this.state.levelOneData} numColumns={this.state.twoColumn} />
         )}
         <input
           onClick={() => this.setButton("level02")}

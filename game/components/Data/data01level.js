@@ -22,6 +22,36 @@ const levelOne = [
       name: "certificate",
       color: "#FF50CE",
       answer: "fail",
+    },
+    {
+      key: "4",
+      name: "certificate",
+      color: "#FF50CE",
+      answer: "fail",
+    },
+    {
+      key: "5",
+      name: "certificate",
+      color: "#FF50CE",
+      answer: "fail",
+    },
+    {
+      key: "6",
+      name: "certificate",
+      color: "#FF50CE",
+      answer: "fail",
+    },
+    {
+      key: "7",
+      name: "certificate",
+      color: "#FF50CE",
+      answer: "fail",
+    },
+    {
+      key: "8",
+      name: "certificate",
+      color: "#FF50CE",
+      answer: "fail",
     }
   ];
 

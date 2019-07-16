@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Text, Button, View, StyleSheet } from "react-native";
 // import FiguresCountdown from "./FiguresCountdown";
-import Level01 from "../ui03level01/Level01";
+import GridGame from "../ui03level01/GridGame";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/FontAwesome";
 import GameSpa from "../GameSpa/GameSpa"
