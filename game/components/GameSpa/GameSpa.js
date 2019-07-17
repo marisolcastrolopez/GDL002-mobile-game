@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
+import styled from "styled-components";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default class GameSpa extends Component {
   constructor(props) {
@@ -35,27 +37,44 @@ export default class GameSpa extends Component {
   render() {
     return (
       <>
-      <View style={styles.container}>
-
-        <ScrollView>
-
-        {this.state.buttonId === "level02" && (
-          <View>
-            <Text>Hola Ganaste</Text>
-          </View>
-        )}
-        {this.state.buttonId === "fail" && (
-          <View>
-            <Text>Hola Perdiste</Text>
-          </View>
-        )}
-        {this.state.buttonId !== "level02" && this.state.buttonId !== "fail" && (
-          //1° Level
-          <View>
-          <GridGame setButton={(answer) => this.setButton(answer)} data={this.state.levelOneData} numColumns={this.state.twoColumn} />
-          </View>
-        )}
-        {/* <View>
+        <View style={styles.container}>
+          <ScrollView>
+            {this.state.buttonId === "level02" && (
+              <View>
+                <Text>Hola Ganaste</Text>
+              </View>
+            )}
+            {this.state.buttonId === "fail" && (
+              <View>
+                <Text>Hola Perdiste</Text>
+              </View>
+            )}
+            {this.state.buttonId !== "level02" &&
+              this.state.buttonId !== "fail" && (
+                //1° Level
+                <View>
+                  <View style={[styles.header]}>
+                    <LinearGradient
+                      colors={["#f0e38d", "#95f0d6"]}
+                      style={{
+                        padding: 15,
+                        height: 75,
+                        alignItems: "center",
+                        borderRadius: 5,
+                        flex: 1
+                      }}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 0 }}
+                    />
+                  </View>
+                  <GridGame
+                    setButton={answer => this.setButton(answer)}
+                    data={this.state.levelOneData}
+                    numColumns={this.state.twoColumn}
+                  />
+                </View>
+              )}
+            {/* <View>
         <Input
           onClick={() => this.setButton("level02")}
           value="Level 02"
@@ -69,10 +88,8 @@ export default class GameSpa extends Component {
           type="button"
         />
         </View> */}
-        </ScrollView>
-      </View>
-
-
+          </ScrollView>
+        </View>
       </>
     );
   }
@@ -90,7 +107,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    backgroundColor: "#03A9F4",
+    backgroundColor: "#f0e38d",
     zIndex: 10
   },
   scrollViewMargin: {

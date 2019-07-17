@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import CountDown from "react-native-countdown-component";
+import styled from 'styled-components'
+
+
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -40,7 +43,7 @@ export default class GridGame extends Component {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
-      <View style={styles.item}>
+      <View style={[styles.item]}>
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
@@ -61,20 +64,19 @@ export default class GridGame extends Component {
     let data = formatData(this.props.data, this.state.numColumns);
     return (
       <Fragment>
+
         <FlatList
           data={data}
-          style={styles.container}
+          style={[styles.container, styles.shadow]}
           renderItem={this.renderItem}
           numColumns={this.state.numColumns}
           keyExtractor={this.props.data.key}
         />
-        {console.log("this.props", this.props.data)}
-        {console.log("this.props num", this.props.numColumns)}
-        <View style={[styles.countContainer]}>
+        {/* <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
-        </View>
+        </View> */}
         {/* <CountDown
           until={6}
           size={30}
@@ -92,18 +94,20 @@ export default class GridGame extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 40,
+    marginTop: 180,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
     padding: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 6
-    },
+  },
+  shadow: {
+    shadowOffset: { width: 0, height: 6 },
+    shadowColor: '#000',
     shadowOpacity: 0.39,
     shadowRadius: 8.3,
-
     elevation: 13,
-    overflow: 'hidden',
+    // background color must be set
+    backgroundColor: 'white' // invisible color
   },
   item: {
     // backgroundColor: "#4D243D",
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
     margin: 1,
     // height: Dimensions.get("window").width / numColumns // approximate a square
     height: 90,
-    overflow: 'hidden',
+
   },
   itemInvisible: {
     backgroundColor: "transparent"
@@ -130,7 +134,7 @@ const styles = StyleSheet.create({
   countContainer: {
     alignItems: "center",
     padding: 10,
-    overflow: 'hidden',
+    // overflow: 'hidden',
   },
   countText: {
     color: "#FF00FF"
