@@ -1,9 +1,9 @@
-const levelTwo = [
+const levelTwoData = [
     {
       key: "0",
       name: "star",
       color: "#F972A1",
-      answer: "level02",
+      answer: "level03",
     },
     {
       key: "1",
@@ -55,32 +55,32 @@ const levelTwo = [
     },
     {
       key: "9",
-      name: "heart",
+      name: "smile-circle",
       color: "#AD84E8",
       answer: "fail",
     },
     {
       key: "10",
-      name: "heart",
-      color: "#ABBF60",
+      name: "frown",
+      color: "#F972A1",
       answer: "fail",
     },
     {
       key: "11",
-      name: "heart",
-      color: "#ABBF60",
+      name: "pushpin",
+      color: "#77D8CD",
       answer: "fail",
     },
     {
       key: "12",
-      name: "heart",
-      color: "#ABBF60",
+      name: "star",
+      color: "#FFD773",
       answer: "fail",
     },
     {
       key: "13",
-      name: "heart",
-      color: "#ABBF60",
+      name: "cloud",
+      color: "#AD84E8",
       answer: "fail",
     },
     {
@@ -91,10 +91,10 @@ const levelTwo = [
     },
     {
       key: "15",
-      name: "heart",
+      name: "smile-circle",
       color: "#ABBF60",
       answer: "fail",
     }
   ];
 
-export default levelTwo;
+export default levelTwoData;

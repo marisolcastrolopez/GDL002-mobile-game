@@ -1,4 +1,4 @@
-const levelOne = [
+const levelOneData = [
     {
       key: "0",
       name: "star",
@@ -55,4 +55,4 @@ const levelOne = [
     }
   ];
 
-export default levelOne;
+export default levelOneData;

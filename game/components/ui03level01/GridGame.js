@@ -94,10 +94,10 @@ export default class GridGame extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 180,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 20,
+    marginTop: 150,
+    marginLeft: 15,
+    marginRight: 15,
+    marginBottom: 30,
     padding: 20,
   },
   shadow: {
@@ -106,8 +106,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.39,
     shadowRadius: 8.3,
     elevation: 13,
-    // background color must be set
-    backgroundColor: 'white' // invisible color
+    backgroundColor: 'white'
   },
   item: {
     // backgroundColor: "#4D243D",
@@ -134,7 +133,6 @@ const styles = StyleSheet.create({
   countContainer: {
     alignItems: "center",
     padding: 10,
-    // overflow: 'hidden',
   },
   countText: {
     color: "#FF00FF"

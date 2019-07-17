@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Text,
   View,
@@ -9,8 +9,24 @@ import {
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
+import levelTwoData from "../Data/data02level"
 import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
+
+const HeaderGradient = () => (
+  <LinearGradient
+    colors={["#f0e38d", "#95f0d6"]}
+    style={{
+      padding: 15,
+      height: 75,
+      alignItems: "center",
+      borderRadius: 5,
+      flex: 1
+    }}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+  />
+);
 
 export default class GameSpa extends Component {
   constructor(props) {
@@ -19,16 +35,12 @@ export default class GameSpa extends Component {
       buttonId: null,
       count: 0,
       levelOneData: levelOneData,
-      twoColumn: 3
+      levelTwoData: levelTwoData,
+      twoColumn: 3,
+      fourColumn: 4
     };
     this.setButton = this.setButton.bind(this);
   }
-  // componentDidMount() {
-  //   this.mounted = true;
-  // }
-  // componentWillUnmount() {
-  //   this.mounted = false;
-  // }
 
   setButton(id) {
     this.setState({ buttonId: id });
@@ -36,15 +48,24 @@ export default class GameSpa extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <View style={styles.container}>
           <ScrollView>
             {this.state.buttonId === "level02" && (
+              //2° Level
               <View>
-                <Text>Hola Ganaste</Text>
-              </View>
+                  <View style={[styles.header]}>
+                    <HeaderGradient />
+                  </View>
+                  <GridGame
+                    setButton={answer => this.setButton(answer)}
+                    data={this.state.levelTwoData}
+                    numColumns={this.state.fourColumn}
+                  />
+                </View>
             )}
             {this.state.buttonId === "fail" && (
+              //Failure Page
               <View>
                 <Text>Hola Perdiste</Text>
               </View>
@@ -54,18 +75,7 @@ export default class GameSpa extends Component {
                 //1° Level
                 <View>
                   <View style={[styles.header]}>
-                    <LinearGradient
-                      colors={["#f0e38d", "#95f0d6"]}
-                      style={{
-                        padding: 15,
-                        height: 75,
-                        alignItems: "center",
-                        borderRadius: 5,
-                        flex: 1
-                      }}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 0 }}
-                    />
+                    <HeaderGradient />
                   </View>
                   <GridGame
                     setButton={answer => this.setButton(answer)}
@@ -90,7 +100,7 @@ export default class GameSpa extends Component {
         </View> */}
           </ScrollView>
         </View>
-      </>
+      </Fragment>
     );
   }
 }
@@ -102,43 +112,12 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   header: {
-    height: 65,
+    height: 75,
     position: "absolute",
     left: 0,
     right: 0,
     top: 0,
     backgroundColor: "#f0e38d",
     zIndex: 10
-  },
-  scrollViewMargin: {
-    marginTop: 60
-  },
-  timerViewMargin: {
-    marginBottom: 20
-  },
-  row: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: 5
-  },
-  box: {
-    flex: 1,
-    height: 100,
-    backgroundColor: "transparent",
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 5,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  box2: {
-    backgroundColor: "green"
-  },
-  box3: {
-    backgroundColor: "orange"
-  },
-  two: {
-    flex: 2
   }
 });
