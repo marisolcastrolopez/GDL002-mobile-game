@@ -3,7 +3,9 @@ import {
   Text,
   View,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  Button,
+  Input
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
@@ -34,7 +36,7 @@ export default class GameSpa extends Component {
     return (
       <>
       <View style={styles.container}>
-        <View style={[styles.header]} />
+
         <ScrollView>
 
         {this.state.buttonId === "level02" && (
@@ -49,20 +51,24 @@ export default class GameSpa extends Component {
         )}
         {this.state.buttonId !== "level02" && this.state.buttonId !== "fail" && (
           //1° Level
+          <View>
           <GridGame setButton={(answer) => this.setButton(answer)} data={this.state.levelOneData} numColumns={this.state.twoColumn} />
+          </View>
         )}
-        {/* <button
+        {/* <View>
+        <Input
           onClick={() => this.setButton("level02")}
           value="Level 02"
           type="button"
           ref="button"
         />
-        <button
+        <Input
           onClick={() => this.setButton("fail")}
           value="You lost"
           ref="button1"
           type="button"
-        /> */}
+        />
+        </View> */}
         </ScrollView>
       </View>
 

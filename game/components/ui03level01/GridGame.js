@@ -43,7 +43,9 @@ export default class GridGame extends Component {
       <View style={styles.item}>
         <TouchableOpacity
           style={styles.button}
-          onClick={() => this.props.setButton(item.answer)}
+          onPress={() => {
+          this.props.setButton(item.answer);
+          }}
         >
           <Icon
             name={item.name}

@@ -235,7 +235,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 200
   },
   header: {
     height: 65,
