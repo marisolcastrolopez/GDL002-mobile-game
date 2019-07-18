@@ -8,26 +8,11 @@ import {
   Input
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
+import HeaderGradient from "../Header/Header"
 import levelOneData from "../Data/data01level";
 import levelTwoData from "../Data/data02level";
 import levelThreeData from "../Data/data03level";
-import styled from "styled-components";
-import { LinearGradient } from "expo-linear-gradient";
 
-const HeaderGradient = () => (
-  <LinearGradient
-    colors={["#f0e38d", "#95f0d6"]}
-    style={{
-      padding: 15,
-      height: 75,
-      alignItems: "center",
-      borderRadius: 5,
-      flex: 1
-    }}
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 0 }}
-  />
-);
 
 export default class GameSpa extends Component {
   constructor(props) {
@@ -109,14 +94,5 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center"
-  },
-  header: {
-    height: 75,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    backgroundColor: "#f0e38d",
-    zIndex: 10
   }
 });
