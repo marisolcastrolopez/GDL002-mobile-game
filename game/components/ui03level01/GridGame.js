@@ -88,7 +88,7 @@ export default class GridGame extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 120,
+    marginTop: 20,
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 30,

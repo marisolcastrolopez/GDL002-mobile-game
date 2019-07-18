@@ -1,5 +1,12 @@
 import React, { Component, Fragment } from "react";
-import { Text, Button, View, StyleSheet, ScrollView } from "react-native";
+import {
+  Text,
+  Button,
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
 // import FiguresCountdown from "./FiguresCountdown";
 import HeaderGradient from "../Header/Header";
 import CountDown from "react-native-countdown-component";
@@ -31,19 +38,20 @@ export default class SecondShowFigure extends Component {
           <ScrollView>
             <HeaderGradient />
             <View style={{ marginTop: 60 }}>
-            {this.state.fontLoaded ? (
-              <Text
-                style={{
-                  fontFamily: "raleway",
-                  textAlign: "center",
-                  fontSize: 22,
-                }}
-              >
-                Time to memorize!
-              </Text>
-            ) : null}
+              {this.state.fontLoaded ? (
+                <Text
+                  style={{
+                    fontFamily: "raleway",
+                    textAlign: "center",
+                    fontSize: 22,
+                    color: "#636863"
+                  }}
+                >
+                  Time to memorize!
+                </Text>
+              ) : null}
             </View>
-            <View className="figures" style={[styles.row, styles.shadow, styles.paddingFigures]}>
+            <View style={[styles.row, styles.shadow, styles.paddingFigures]}>
               <View style={[styles.box]}>
                 {this.state.fontLoaded ? (
                   <Text
@@ -87,19 +95,51 @@ export default class SecondShowFigure extends Component {
             </View>
             <View style={[styles.row]}>
               <View style={[styles.box]}>
-                {/* <CountDown
-            until={5}
-            size={30}
-            onFinish={() => navigate("GameSpa", { screen: GameSpa })}
-            digitStyle={{ backgroundColor: "#FFF" }}
-            digitTxtStyle={{ color: "#1CC625" }}
-            timeToShow={["S"]}
-            timeLabels={{ s: "Seconds" }}
-          /> */}
-                <Button
+                {this.state.fontLoaded ? (
+                  <CountDown
+                    until={60}
+                    size={20}
+                    onFinish={() => navigate("GameSpa", { screen: GameSpa })}
+                    digitStyle={styles.timerCircle}
+                    digitTxtStyle={{
+                      color: "#636863",
+                      fontFamily: "raleway",
+                      backgroundColor: "#ffff"
+                    }}
+                    timeLabelStyle={{
+                      color: "#636863",
+                      fontFamily: "raleway",
+                      marginBottom: 20,
+                      marginTop: 5,
+                      fontSize: 14
+                    }}
+                    timeToShow={["S"]}
+                    timeLabels={{ s: "Seconds" }}
+                  />
+                ) : null}
+                <TouchableOpacity
                   title="Skip time"
                   onPress={() => navigate("GameSpa", { screen: GameSpa })}
-                />
+                  style={[styles.btnSkip]}
+                >
+                  {this.state.fontLoaded ? (
+                    <Text
+                      style={{
+                        color: "#9ea6a5",
+                        fontFamily: "raleway",
+                        fontSize: 14,
+                        paddingTop: 5,
+                        paddingRight: 15,
+                        paddingBottom: 5,
+                        paddingLeft: 15,
+                        textTransform: "uppercase",
+                        letterSpacing: 4
+                      }}
+                    >
+                      Skip time
+                    </Text>
+                  ) : null}
+                </TouchableOpacity>
               </View>
             </View>
           </ScrollView>
@@ -113,7 +153,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#f6f6f0"
   },
   row: {
     flex: 1,
@@ -138,7 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  paddingFigures:{
+  paddingFigures: {
     paddingTop: 50,
     paddingLeft: 25,
     paddingBottom: 50,
@@ -155,5 +196,32 @@ const styles = StyleSheet.create({
   },
   invisible: {
     color: "transparent"
+  },
+  timerCircle: {
+    height: 40,
+    width: 60,
+    backgroundColor: "#ffff",
+    shadowOffset: { width: 0, height: 6 },
+    shadowColor: "#000",
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+    elevation: 13,
+    borderRadius: 400,
+    marginTop: 50
+  },
+  btnSkip: {
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#9ea6a5",
+    marginBottom: 15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.10,
+    shadowRadius: 3.84,
+
+    elevation: 5
   }
 });
