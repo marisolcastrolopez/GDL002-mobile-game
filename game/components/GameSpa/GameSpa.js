@@ -10,6 +10,7 @@ import {
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
 import levelTwoData from "../Data/data02level";
+import levelThreeData from "../Data/data03level";
 import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -34,8 +35,8 @@ export default class GameSpa extends Component {
     this.state = {
       userAnswer: null,
       count: 0,
-      numColumns: [3, 4],
-      data: [levelOneData, levelTwoData]
+      numColumns: [3, 4, 5],
+      data: [levelOneData, levelTwoData, levelThreeData]
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -49,18 +50,17 @@ export default class GameSpa extends Component {
       <Fragment>
         <View style={styles.container}>
           <ScrollView>
-          {this.state.userAnswer === "level03" && (
-              //2° Level
+            {this.state.userAnswer === "level03" && (
+              //3° Level
               <View>
                 <View style={[styles.header]}>
                   <HeaderGradient />
                 </View>
                 <GridGame
                   handleAnswer={answer => this.handleAnswer(answer)}
-                  data={this.state.data[1]}
-                  numColumns={this.state.numColumns[1]}
+                  data={this.state.data[2]}
+                  numColumns={this.state.numColumns[2]}
                 />
-                <Text>Ps level 3</Text>
               </View>
             )}
             {this.state.userAnswer === "level02" && (
@@ -77,7 +77,8 @@ export default class GameSpa extends Component {
               </View>
             )}
             {this.state.userAnswer !== "level02" &&
-              this.state.userAnswer !== "fail" && (
+              this.state.userAnswer !== "fail" &&
+              this.state.userAnswer !== "level03" && (
                 //1° Level Default Page <---Important default page 1 level
                 <View>
                   <View style={[styles.header]}>
