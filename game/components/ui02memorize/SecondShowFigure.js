@@ -96,6 +96,7 @@ export default class SecondShowFigure extends Component {
             <View style={[styles.row]}>
               <View style={[styles.box]}>
                 {this.state.fontLoaded ? (
+                  <TouchableOpacity style={styles.timerShadow}>
                   <CountDown
                     until={60}
                     size={20}
@@ -104,18 +105,18 @@ export default class SecondShowFigure extends Component {
                     digitTxtStyle={{
                       color: "#636863",
                       fontFamily: "raleway",
-                      backgroundColor: "#ffff"
+                      backgroundColor: "transparent",
                     }}
                     timeLabelStyle={{
                       color: "#636863",
                       fontFamily: "raleway",
                       marginBottom: 20,
-                      marginTop: 5,
-                      fontSize: 14
+                      fontSize: 9
                     }}
                     timeToShow={["S"]}
-                    timeLabels={{ s: "Seconds" }}
+                    timeLabels={{ s: null }}
                   />
+                  </TouchableOpacity>
                 ) : null}
                 <TouchableOpacity
                   title="Skip time"
@@ -198,16 +199,10 @@ const styles = StyleSheet.create({
     color: "transparent"
   },
   timerCircle: {
-    height: 40,
+    height: 60,
     width: 60,
-    backgroundColor: "#ffff",
-    shadowOffset: { width: 0, height: 6 },
-    shadowColor: "#000",
-    shadowOpacity: 0.39,
-    shadowRadius: 8.3,
-    elevation: 13,
+    backgroundColor: "transparent",
     borderRadius: 400,
-    marginTop: 50
   },
   btnSkip: {
     backgroundColor: "#fff",
@@ -223,5 +218,16 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5
+  },
+  timerShadow:{
+    shadowOffset: { width: 0, height: 6 },
+    shadowColor: "#000",
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+    elevation: 13,
+    backgroundColor: "white",
+    borderRadius: 400,
+    marginTop: 60,
+    marginBottom: 20,
   }
 });
