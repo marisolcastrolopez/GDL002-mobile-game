@@ -19,7 +19,9 @@ export default class SecondShowFigure extends Component {
     super(props);
     this.state = {
       count: 0,
-      fontLoaded: false
+      fontLoaded: false,
+      shape: [],
+      color: []
     };
   }
   async componentDidMount() {
@@ -65,13 +67,8 @@ export default class SecondShowFigure extends Component {
                     Color
                   </Text>
                 ) : null}
-                <Icon
-                  name="cloud"
-                  size={40}
-                  color="#F972A1"
-                  backgroundColor="transparent"
-                  underlayColor="transparent"
-                />
+                {/* //First Icon---------------------------- */}
+                <Icon name="cloud" size={40} color="#F972A1" />
               </View>
               <View style={[styles.box]}>
                 <Text style={[styles.centering, styles.invisible]}>No</Text>
@@ -90,6 +87,7 @@ export default class SecondShowFigure extends Component {
                     Shape
                   </Text>
                 ) : null}
+                {/* //Second Icon---------------------------- */}
                 <Icon name="star" size={40} color="#77D8CD" />
               </View>
             </View>
@@ -97,25 +95,19 @@ export default class SecondShowFigure extends Component {
               <View style={[styles.box]}>
                 {this.state.fontLoaded ? (
                   <TouchableOpacity style={styles.timerShadow}>
-                  <CountDown
-                    until={60}
-                    size={20}
-                    onFinish={() => navigate("GameSpa", { screen: GameSpa })}
-                    digitStyle={styles.timerCircle}
-                    digitTxtStyle={{
-                      color: "#636863",
-                      fontFamily: "raleway",
-                      backgroundColor: "transparent",
-                    }}
-                    timeLabelStyle={{
-                      color: "#636863",
-                      fontFamily: "raleway",
-                      marginBottom: 20,
-                      fontSize: 9
-                    }}
-                    timeToShow={["S"]}
-                    timeLabels={{ s: null }}
-                  />
+                    <CountDown
+                      until={60}
+                      size={20}
+                      onFinish={() => navigate("GameSpa", { screen: GameSpa })}
+                      digitStyle={styles.timerCircle}
+                      digitTxtStyle={{
+                        color: "#636863",
+                        fontFamily: "raleway",
+                        backgroundColor: "transparent"
+                      }}
+                      timeToShow={["S"]}
+                      timeLabels={{ s: null }}
+                    />
                   </TouchableOpacity>
                 ) : null}
                 <TouchableOpacity
@@ -172,7 +164,6 @@ const styles = StyleSheet.create({
   },
   box: {
     flex: 1,
-    // height: 100,
     backgroundColor: "transparent",
     marginLeft: 5,
     marginRight: 5,
@@ -202,7 +193,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     backgroundColor: "transparent",
-    borderRadius: 400,
+    borderRadius: 400
   },
   btnSkip: {
     backgroundColor: "#fff",
@@ -214,12 +205,12 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2
     },
-    shadowOpacity: 0.10,
+    shadowOpacity: 0.1,
     shadowRadius: 3.84,
 
     elevation: 5
   },
-  timerShadow:{
+  timerShadow: {
     shadowOffset: { width: 0, height: 6 },
     shadowColor: "#000",
     shadowOpacity: 0.39,
@@ -228,6 +219,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 400,
     marginTop: 60,
-    marginBottom: 20,
+    marginBottom: 20
   }
 });
