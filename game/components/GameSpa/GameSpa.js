@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import levelOneData from "../Data/data01level";
-import levelTwoData from "../Data/data02level"
+import levelTwoData from "../Data/data02level";
 import styled from "styled-components";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -32,18 +32,16 @@ export default class GameSpa extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      buttonId: null,
+      userAnswer: null,
       count: 0,
-      levelOneData: levelOneData,
-      levelTwoData: levelTwoData,
-      twoColumn: 3,
-      fourColumn: 4
+      numColumns: [3, 4],
+      data: [levelOneData, levelTwoData]
     };
-    this.setButton = this.setButton.bind(this);
+    this.handleAnswer = this.handleAnswer.bind(this);
   }
 
-  setButton(id) {
-    this.setState({ buttonId: id });
+  handleAnswer(answer) {
+    this.setState({ userAnswer: answer });
   }
 
   render() {
@@ -51,53 +49,53 @@ export default class GameSpa extends Component {
       <Fragment>
         <View style={styles.container}>
           <ScrollView>
-            {this.state.buttonId === "level02" && (
+          {this.state.userAnswer === "level03" && (
               //2° Level
               <View>
-                  <View style={[styles.header]}>
-                    <HeaderGradient />
-                  </View>
-                  <GridGame
-                    setButton={answer => this.setButton(answer)}
-                    data={this.state.levelTwoData}
-                    numColumns={this.state.fourColumn}
-                  />
+                <View style={[styles.header]}>
+                  <HeaderGradient />
                 </View>
-            )}
-            {this.state.buttonId === "fail" && (
-              //Failure Page
-              <View>
-                <Text>Hola Perdiste</Text>
+                <GridGame
+                  handleAnswer={answer => this.handleAnswer(answer)}
+                  data={this.state.data[1]}
+                  numColumns={this.state.numColumns[1]}
+                />
+                <Text>Ps level 3</Text>
               </View>
             )}
-            {this.state.buttonId !== "level02" &&
-              this.state.buttonId !== "fail" && (
-                //1° Level
+            {this.state.userAnswer === "level02" && (
+              //2° Level
+              <View>
+                <View style={[styles.header]}>
+                  <HeaderGradient />
+                </View>
+                <GridGame
+                  handleAnswer={answer => this.handleAnswer(answer)}
+                  data={this.state.data[1]}
+                  numColumns={this.state.numColumns[1]}
+                />
+              </View>
+            )}
+            {this.state.userAnswer !== "level02" &&
+              this.state.userAnswer !== "fail" && (
+                //1° Level Default Page <---Important default page 1 level
                 <View>
                   <View style={[styles.header]}>
                     <HeaderGradient />
                   </View>
                   <GridGame
-                    setButton={answer => this.setButton(answer)}
-                    data={this.state.levelOneData}
-                    numColumns={this.state.twoColumn}
+                    handleAnswer={answer => this.handleAnswer(answer)}
+                    data={this.state.data[0]}
+                    numColumns={this.state.numColumns[0]}
                   />
                 </View>
               )}
-            {/* <View>
-        <Input
-          onClick={() => this.setButton("level02")}
-          value="Level 02"
-          type="button"
-          ref="button"
-        />
-        <Input
-          onClick={() => this.setButton("fail")}
-          value="You lost"
-          ref="button1"
-          type="button"
-        />
-        </View> */}
+            {this.state.userAnswer === "fail" && (
+              //Failure Page <--- Important default page for failure
+              <View>
+                <Text>Hola Perdiste</Text>
+              </View>
+            )}
           </ScrollView>
         </View>
       </Fragment>

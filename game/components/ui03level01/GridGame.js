@@ -9,9 +9,6 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import CountDown from "react-native-countdown-component";
-import styled from 'styled-components'
-
-
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -25,8 +22,6 @@ const formatData = (data, numColumns) => {
   data.sort(() => Math.random() - 0.5);
   return data;
 };
-
-let numColumns = 2;
 
 export default class GridGame extends Component {
   constructor(props) {
@@ -47,7 +42,7 @@ export default class GridGame extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-          this.props.setButton(item.answer);
+            this.props.handleAnswer(item.userAnswer);
           }}
         >
           <Icon
@@ -64,7 +59,6 @@ export default class GridGame extends Component {
     let data = formatData(this.props.data, this.state.numColumns);
     return (
       <Fragment>
-
         <FlatList
           data={data}
           style={[styles.container, styles.shadow]}
@@ -98,15 +92,15 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
     marginBottom: 30,
-    padding: 20,
+    padding: 20
   },
   shadow: {
     shadowOffset: { width: 0, height: 6 },
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.39,
     shadowRadius: 8.3,
     elevation: 13,
-    backgroundColor: 'white'
+    backgroundColor: "white"
   },
   item: {
     // backgroundColor: "#4D243D",
@@ -116,8 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 1,
     // height: Dimensions.get("window").width / numColumns // approximate a square
-    height: 90,
-
+    height: 90
   },
   itemInvisible: {
     backgroundColor: "transparent"
@@ -132,7 +125,7 @@ const styles = StyleSheet.create({
   },
   countContainer: {
     alignItems: "center",
-    padding: 10,
+    padding: 10
   },
   countText: {
     color: "#FF00FF"

@@ -4,8 +4,8 @@ import { Text, Button, View, StyleSheet } from "react-native";
 import GridGame from "../ui03level01/GridGame";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/AntDesign";
-import GameSpa from "../GameSpa/GameSpa"
-import * as Font from 'expo-font'
+import GameSpa from "../GameSpa/GameSpa";
+import * as Font from "expo-font";
 
 export default class SecondShowFigure extends Component {
   constructor(props) {
@@ -13,70 +13,55 @@ export default class SecondShowFigure extends Component {
     this.state = {
       count: 0,
       fontLoaded: false
-
     };
   }
-  // componentDidMount() {
-  //   Font.loadAsync({
-  //     'raleway': require('../../assets/fonts/raleway-Regular.ttf'),
-  //   })
-  //   .then(() => {
-  //     this.setState({ fontLoaded: true });
-  //     this.defaultFonts();
-  //  });
-  // }
   async componentDidMount() {
     await Font.loadAsync({
-      'raleway': require('../../assets/fonts/Raleway-Regular.ttf'),
+      raleway: require("../../assets/fonts/Raleway-Regular.ttf")
     });
 
     this.setState({ fontLoaded: true });
   }
 
-
   render() {
     const { navigate } = this.props.navigation;
     return (
       <Fragment>
-       <Text style={[styles.centering]}>Time to memorize!</Text>
-      <View style={[styles.row]}>
-        <View style={[styles.box]}>
-        <Text style={[styles.centering]}>Color</Text>
-          <Icon
-            name="cloud"
-            size={40}
-            color="#F972A1"
-            backgroundColor="transparent"
-            underlayColor="transparent"
-          />
+        <Text style={[styles.centering]}>Time to memorize!</Text>
+        <View style={[styles.row]}>
+          <View style={[styles.box]}>
+            <Text style={[styles.centering]}>Color</Text>
+            <Icon
+              name="cloud"
+              size={40}
+              color="#F972A1"
+              backgroundColor="transparent"
+              underlayColor="transparent"
+            />
+          </View>
+          <View style={[styles.box]}>
+            <Text style={[styles.centering, styles.invisible]}>No</Text>
+            <Icon
+              name="plus"
+              size={40}
+              color="#9ea6a5"
+            />
+          </View>
+          <View style={[styles.box]}>
+            <Text style={[styles.centering]}>Shape</Text>
+            <Icon
+              name="star"
+              size={40}
+              color="#77D8CD"
+            />
+            {this.state.fontLoaded ? (
+              <Text style={{ fontFamily: "raleway" }}>Hola</Text>
+            ) : null}
+          </View>
         </View>
-        <View style={[styles.box]}>
-        <Text style={[styles.centering, styles.invisible]}>No</Text>
-          <Icon
-            name="plus"
-            size={40}
-            color="#9ea6a5"
-            // backgroundColor="transparent"
-          />
-        </View>
-        <View style={[styles.box]}>
-        <Text style={[styles.centering]}>Shape</Text>
-          <Icon
-            name="star"
-            size={40}
-            color="#77D8CD"
-            // backgroundColor="transparent"
-          />
-          {
-    this.state.fontLoaded ? (
-      <Text style={{fontFamily: 'raleway'}}>Hola</Text>
-    ) : null
-  }
-        </View>
-      </View>
-      <View style={[styles.row]}>
-        <View style={[styles.box]}>
-        {/* <CountDown
+        <View style={[styles.row]}>
+          <View style={[styles.box]}>
+            {/* <CountDown
             until={5}
             size={30}
             onFinish={() => navigate("GameSpa", { screen: GameSpa })}
@@ -85,12 +70,12 @@ export default class SecondShowFigure extends Component {
             timeToShow={["S"]}
             timeLabels={{ s: "Seconds" }}
           /> */}
-          <Button
-          title="Skip time"
-          onPress={() => navigate("GameSpa", { screen: GameSpa })}
-        />
+            <Button
+              title="Skip time"
+              onPress={() => navigate("GameSpa", { screen: GameSpa })}
+            />
+          </View>
         </View>
-      </View>
       </Fragment>
     );
   }
@@ -120,7 +105,7 @@ const styles = StyleSheet.create({
   row: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   box: {
     flex: 1,
@@ -132,11 +117,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  centering:{
+  centering: {
     justifyContent: "center",
     alignItems: "center",
     marginRight: 10,
-    textAlign: "center",
+    textAlign: "center"
   },
   box2: {
     backgroundColor: "green"
