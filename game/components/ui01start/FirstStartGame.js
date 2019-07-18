@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { Button, StyleSheet, View } from "react-native";
+import React, { Component, Fragment } from "react";
+import { Button, StyleSheet, View, Animated, Easing } from "react-native";
 import SecondShowFigure from "../ui02memorize/SecondShowFigure";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class FirstStartGame extends Component {
-
   render() {
     const { navigate } = this.props.navigation;
     return (
+      <Fragment>
       <View style={{marginTop: 50 }}>
       <Button
         title="Start Game"
         onPress={() => navigate("SecondShowFigure", { screen: SecondShowFigure })}
       />
       </View>
+      </Fragment>
     );
   }
 }
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center"
+    // justifyContent: "center"
   },
   header: {
     height: 65,
@@ -54,20 +55,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  centering:{
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: 10,
-    textAlign: "center"
-  },
-  box2: {
-    backgroundColor: "green"
-  },
-  box3: {
-    backgroundColor: "orange"
-  },
-  two: {
-    flex: 2
-  },
+  // centering:{
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   marginRight: 10,
+  //   textAlign: "center"
+  // },
+  // box2: {
+  //   backgroundColor: "green"
+  // },
+  // box3: {
+  //   backgroundColor: "orange"
+  // },
+  // two: {
+  //   flex: 2
+  // },
 
 });
