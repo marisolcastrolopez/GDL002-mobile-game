@@ -14,7 +14,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 import GameSpa from "../GameSpa/GameSpa";
 import * as Font from "expo-font";
 
-export default class SecondShowFigure extends Component {
+export default class MemorizeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {

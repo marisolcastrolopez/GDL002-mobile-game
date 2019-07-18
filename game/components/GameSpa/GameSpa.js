@@ -8,11 +8,11 @@ import {
   Input
 } from "react-native";
 import GridGame from "../ui03level01/GridGame";
-import HeaderGradient from "../Header/Header"
+import HeaderGradient from "../Header/Header";
+import FirstScreen from "../ui01start/FirstStartGame"
 import levelOneData from "../Data/data01level";
 import levelTwoData from "../Data/data02level";
 import levelThreeData from "../Data/data03level";
-
 
 export default class GameSpa extends Component {
   constructor(props) {
@@ -61,9 +61,10 @@ export default class GameSpa extends Component {
                 />
               </View>
             )}
-            {this.state.userAnswer !== "level02" &&
-              this.state.userAnswer !== "fail" &&
-              this.state.userAnswer !== "level03" && (
+            { this.state.userAnswer !== "level03" &&
+              this.state.userAnswer !== "level02" &&
+              this.state.userAnswer !== "level01" &&
+              this.state.userAnswer !== "fail" && (
                 //1° Level Default Page <---Important default page 1 level
                 <View>
                   <View style={[styles.header]}>
@@ -74,7 +75,9 @@ export default class GameSpa extends Component {
                     data={this.state.data[0]}
                     numColumns={this.state.numColumns[0]}
                   />
+                  <FirstScreen/>
                 </View>
+
               )}
             {this.state.userAnswer === "fail" && (
               //Failure Page <--- Important default page for failure

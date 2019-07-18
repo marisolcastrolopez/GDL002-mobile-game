@@ -1,17 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { Button, StyleSheet, View, Animated, Easing } from "react-native";
-import SecondShowFigure from "../ui02memorize/SecondShowFigure";
-import Icon from "react-native-vector-icons/FontAwesome";
+import MemorizeScreen from "../ui02memorize/MemorizeScreen";
+// import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class FirstStartGame extends Component {
   render() {
-    const { navigate } = this.props.navigation;
+    // const { navigate } = this.props.navigation;
     return (
       <Fragment>
       <View style={{marginTop: 50 }}>
       <Button
         title="Start Game"
-        onPress={() => navigate("SecondShowFigure", { screen: SecondShowFigure })}
+        // onPress={() => navigate("MemorizeScreen", { screen: MemorizeScreen })}
+        onPress={()=> alert('hi')}
       />
       </View>
       </Fragment>
@@ -54,21 +55,5 @@ const styles = StyleSheet.create({
     marginTop: 5,
     justifyContent: "center",
     alignItems: "center"
-  },
-  // centering:{
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   marginRight: 10,
-  //   textAlign: "center"
-  // },
-  // box2: {
-  //   backgroundColor: "green"
-  // },
-  // box3: {
-  //   backgroundColor: "orange"
-  // },
-  // two: {
-  //   flex: 2
-  // },
-
+  }
 });
