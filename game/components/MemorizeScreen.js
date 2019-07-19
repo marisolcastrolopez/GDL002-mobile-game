@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-import HeaderGradient from "../Header/Header";
+import HeaderGradient from "./Header";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/AntDesign";
 import * as Font from "expo-font";
@@ -27,7 +27,7 @@ export default class MemorizeScreen extends Component {
   }
   async componentDidMount() {
     await Font.loadAsync({
-      raleway: require("../../assets/fonts/Raleway-Regular.ttf")
+      raleway: require("../assets/fonts/Raleway-Regular.ttf")
     });
 
     this.setState({ fontLoaded: true });

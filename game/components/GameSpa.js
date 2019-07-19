@@ -1,19 +1,12 @@
 import React, { Component, Fragment } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  Button,
-  Input
-} from "react-native";
-import GridGame from "../ui03level01/GridGame";
-import HeaderGradient from "../Header/Header";
-import FirstScreen from "../ui01start/FirstStartGame";
-import MemorizeScreen from "../ui02memorize/MemorizeScreen";
-import levelOneData from "../Data/data01level";
-import levelTwoData from "../Data/data02level";
-import levelThreeData from "../Data/data03level";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
+import GridGame from "./GridGame";
+import HeaderGradient from "./Header";
+import FirstScreen from "./FirstStartGame";
+import MemorizeScreen from "./MemorizeScreen";
+import levelOneData from "./Data/data01level";
+import levelTwoData from "./Data/data02level";
+import levelThreeData from "./Data/data03level";
 
 export default class GameSpa extends Component {
   constructor(props) {
@@ -31,8 +24,15 @@ export default class GameSpa extends Component {
         "memorize02",
         "memorize03"
       ],
-      memorizeColor: ["#F972A1", "#77D8CD", "#FFD773", "#ABBF60", "#AD84E8",],
-      memorizeShape: ["cloud", "star", "heart", "smile-circle", "frown", "pushpin",]
+      memorizeColor: ["#F972A1", "#77D8CD", "#FFD773", "#ABBF60", "#AD84E8"],
+      memorizeShape: [
+        "cloud",
+        "star",
+        "heart",
+        "smile-circle",
+        "frown",
+        "pushpin"
+      ]
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -67,10 +67,10 @@ export default class GameSpa extends Component {
                 </View>
                 <MemorizeScreen
                   handleAnswer={() => this.handleAnswer(this.state.screens[2])}
-                  colorOne={this.state.memorizeColor[0]}
-                  colorTwo={this.state.memorizeColor[1]}
-                  shapeOne={this.state.memorizeShape[0]}
-                  shapeTwo={this.state.memorizeShape[1]}
+                  colorOne={this.state.memorizeColor[2]}
+                  colorTwo={this.state.memorizeColor[4]}
+                  shapeOne={this.state.memorizeShape[5]}
+                  shapeTwo={this.state.memorizeShape[3]}
                 />
               </View>
             )}
@@ -95,10 +95,10 @@ export default class GameSpa extends Component {
                 </View>
                 <MemorizeScreen
                   handleAnswer={() => this.handleAnswer(this.state.screens[1])}
-                  colorOne={this.state.memorizeColor[0]}
-                  colorTwo={this.state.memorizeColor[1]}
-                  shapeOne={this.state.memorizeShape[0]}
-                  shapeTwo={this.state.memorizeShape[1]}
+                  colorOne={this.state.memorizeColor[1]}
+                  colorTwo={this.state.memorizeColor[4]}
+                  shapeOne={this.state.memorizeShape[3]}
+                  shapeTwo={this.state.memorizeShape[2]}
                 />
               </View>
             )}
@@ -131,7 +131,7 @@ export default class GameSpa extends Component {
               </View>
             )}
             {this.state.userAnswer !== "level03" &&
-            this.state.userAnswer !== "memorize03" &&
+              this.state.userAnswer !== "memorize03" &&
               this.state.userAnswer !== "level02" &&
               this.state.userAnswer !== "memorize02" &&
               this.state.userAnswer !== "level01" &&

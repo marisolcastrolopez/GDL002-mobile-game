@@ -3,7 +3,7 @@ const levelOneData = [
       key: "0",
       name: "star",
       color: "#F972A1",
-      userAnswer: "level02",
+      userAnswer: "memorize02",
     },
     {
       key: "1",

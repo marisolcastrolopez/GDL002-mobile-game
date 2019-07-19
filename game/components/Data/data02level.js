@@ -1,9 +1,9 @@
 const levelTwoData = [
     {
       key: "0",
-      name: "star",
-      color: "#F972A1",
-      userAnswer: "level03",
+      name: "heart",
+      color: "#77D8CD",
+      userAnswer: "memorize03",
     },
     {
       key: "1",

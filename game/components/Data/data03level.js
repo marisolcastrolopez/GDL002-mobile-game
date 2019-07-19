@@ -1,9 +1,9 @@
 const levelThreeData = [
     {
       key: "0",
-      name: "star",
-      color: "#F972A1",
-      userAnswer: "level03",
+      name: "smile-circle",
+      color: "#FFD773",
+      userAnswer: "",
     },
     {
       key: "1",
@@ -134,7 +134,7 @@ const levelThreeData = [
     {
       key: "22",
       name: "smile-circle",
-      color: "#FFD773",
+      color: "#AD84E8",
       userAnswer: "fail",
     },
     {
