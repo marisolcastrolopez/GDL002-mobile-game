@@ -1,13 +1,10 @@
 import React, { Component, Fragment } from "react";
 import {
   Text,
-  Button,
   View,
   StyleSheet,
-  ScrollView,
   TouchableOpacity
 } from "react-native";
-import HeaderGradient from "./Header";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/AntDesign";
 import * as Font from "expo-font";
@@ -97,7 +94,7 @@ export default class MemorizeScreen extends Component {
                 {this.state.fontLoaded ? (
                   <TouchableOpacity style={styles.timerShadow}>
                     <CountDown
-                      until={60}
+                      until={10}
                       size={20}
                       onFinish={this.props.handleAnswer}
                       digitStyle={{
