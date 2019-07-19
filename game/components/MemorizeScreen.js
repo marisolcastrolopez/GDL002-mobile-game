@@ -1,10 +1,5 @@
 import React, { Component, Fragment } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity
-} from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/AntDesign";
 import * as Font from "expo-font";
@@ -18,7 +13,7 @@ export default class MemorizeScreen extends Component {
       colorOne: this.props.colorOne,
       colorTwo: this.props.colorTwo,
       shapeOne: this.props.shapeOne,
-      shapeTwo: this.props.shapeTwo,
+      shapeTwo: this.props.shapeTwo
     };
   }
   async componentDidMount() {
@@ -30,114 +25,114 @@ export default class MemorizeScreen extends Component {
   }
 
   render() {
-    let colorOne = this.state.colorOne
-    let colorTwo = this.state.colorTwo
-    let shapeOne = this.state.shapeOne
-    let shapeTwo = this.state.shapeTwo
+    let colorOne = this.state.colorOne;
+    let colorTwo = this.state.colorTwo;
+    let shapeOne = this.state.shapeOne;
+    let shapeTwo = this.state.shapeTwo;
     return (
       <Fragment>
         <View style={styles.container}>
-            <View style={{ marginTop: 60 }}>
+          <View style={{ marginTop: 60 }}>
+            {this.state.fontLoaded ? (
+              <Text
+                style={{
+                  fontFamily: "raleway",
+                  textAlign: "center",
+                  fontSize: 22,
+                  color: "#636863"
+                }}
+              >
+                Time to memorize!
+              </Text>
+            ) : null}
+          </View>
+          <View style={[styles.row, styles.shadow, styles.paddingFigures]}>
+            <View style={[styles.box]}>
               {this.state.fontLoaded ? (
                 <Text
                   style={{
                     fontFamily: "raleway",
                     textAlign: "center",
-                    fontSize: 22,
-                    color: "#636863"
+                    fontSize: 16,
+                    color: colorOne
                   }}
                 >
-                  Time to memorize!
+                  Color
                 </Text>
               ) : null}
+              {/* //First Icon---------------------------- */}
+              <Icon name={shapeOne} size={40} color={colorOne} />
             </View>
-            <View style={[styles.row, styles.shadow, styles.paddingFigures]}>
-              <View style={[styles.box]}>
-                {this.state.fontLoaded ? (
-                  <Text
-                    style={{
-                      fontFamily: "raleway",
-                      textAlign: "center",
-                      fontSize: 16,
-                      color: colorOne
-                    }}
-                  >
-                    Color
-                  </Text>
-                ) : null}
-                {/* //First Icon---------------------------- */}
-                <Icon name={shapeOne} size={40} color={colorOne} />
-              </View>
-              <View style={[styles.box]}>
-                <Text style={[styles.centering, styles.invisible]}>No</Text>
-                <Icon name="plus" size={25} color="#9ea6a5" />
-              </View>
-              <View style={[styles.box]}>
-                {this.state.fontLoaded ? (
-                  <Text
-                    style={{
-                      fontFamily: "raleway",
-                      textAlign: "center",
-                      fontSize: 16,
-                      color: colorTwo
-                    }}
-                  >
-                    Shape
-                  </Text>
-                ) : null}
-                {/* //Second Icon---------------------------- */}
-                <Icon name={shapeTwo} size={40} color={colorTwo} />
-              </View>
+            <View style={[styles.box]}>
+              <Text style={[styles.centering, styles.invisible]}>No</Text>
+              <Icon name="plus" size={25} color="#9ea6a5" />
             </View>
-            <View style={[styles.row]}>
-              <View style={[styles.box]}>
-                {this.state.fontLoaded ? (
-                  <TouchableOpacity style={styles.timerShadow}>
-                    <CountDown
-                      until={10}
-                      size={20}
-                      onFinish={this.props.handleAnswer}
-                      digitStyle={{
-                        height: 60,
-                        width: 60,
-                        backgroundColor: "transparent",
-                        borderRadius: 400
-                      }}
-                      digitTxtStyle={{
-                        color: "#636863",
-                        fontFamily: "raleway",
-                        backgroundColor: "transparent"
-                      }}
-                      timeToShow={["S"]}
-                      timeLabels={{ s: null }}
-                    />
-                  </TouchableOpacity>
-                ) : null}
-                <TouchableOpacity
-                  title="Skip time"
-                  onPress={this.props.handleAnswer}
-                  style={[styles.btnSkip]}
+            <View style={[styles.box]}>
+              {this.state.fontLoaded ? (
+                <Text
+                  style={{
+                    fontFamily: "raleway",
+                    textAlign: "center",
+                    fontSize: 16,
+                    color: colorTwo
+                  }}
                 >
-                  {this.state.fontLoaded ? (
-                    <Text
-                      style={{
-                        color: "#9ea6a5",
-                        fontFamily: "raleway",
-                        fontSize: 14,
-                        paddingTop: 5,
-                        paddingRight: 15,
-                        paddingBottom: 5,
-                        paddingLeft: 15,
-                        textTransform: "uppercase",
-                        letterSpacing: 4
-                      }}
-                    >
-                      Skip time
-                    </Text>
-                  ) : null}
-                </TouchableOpacity>
-              </View>
+                  Shape
+                </Text>
+              ) : null}
+              {/* //Second Icon---------------------------- */}
+              <Icon name={shapeTwo} size={40} color={colorTwo} />
             </View>
+          </View>
+          <View style={[styles.row]}>
+            <View style={[styles.box]}>
+              {this.state.fontLoaded ? (
+                <TouchableOpacity style={styles.timerShadow}>
+                  <CountDown
+                    until={10}
+                    size={20}
+                    onFinish={this.props.handleAnswer}
+                    digitStyle={{
+                      height: 60,
+                      width: 60,
+                      backgroundColor: "transparent",
+                      borderRadius: 400
+                    }}
+                    digitTxtStyle={{
+                      color: "#636863",
+                      fontFamily: "raleway",
+                      backgroundColor: "transparent"
+                    }}
+                    timeToShow={["S"]}
+                    timeLabels={{ s: null }}
+                  />
+                </TouchableOpacity>
+              ) : null}
+              <TouchableOpacity
+                title="Skip time"
+                onPress={this.props.handleAnswer}
+                style={[styles.btnSkip]}
+              >
+                {this.state.fontLoaded ? (
+                  <Text
+                    style={{
+                      color: "#9ea6a5",
+                      fontFamily: "raleway",
+                      fontSize: 14,
+                      paddingTop: 5,
+                      paddingRight: 15,
+                      paddingBottom: 5,
+                      paddingLeft: 15,
+                      textTransform: "uppercase",
+                      letterSpacing: 4
+                    }}
+                  >
+                    Skip time
+                  </Text>
+                ) : null}
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </Fragment>
     );
@@ -149,7 +144,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#f6f6f0",
+    backgroundColor: "#f6f6f0"
   },
   row: {
     flex: 1,

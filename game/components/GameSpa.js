@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { View, StyleSheet, ScrollView, Alert, } from "react-native";
+import { View, StyleSheet, ScrollView, Alert } from "react-native";
 import GridGame from "./GridGame";
 import HeaderGradient from "./Header";
 import FirstScreen from "./FirstStartGame";
@@ -157,17 +157,14 @@ export default class GameSpa extends Component {
                   />
                 </View>
               )}
-            {this.state.userAnswer === "fail" && (
+            {this.state.userAnswer === "fail" &&
               //Failure Page <--- Important default page for failure
-                Alert.alert(
-                  "Whoops!",
-                  "Wrong Answer",
-                  [
-                    { text: "Go to home", onPress: () => this.handleAnswer("") }
-                  ],
-                  { cancelable: false }
-                )
-            )}
+              Alert.alert(
+                "Whoops!",
+                "Wrong Answer",
+                [{ text: "Go to home", onPress: () => this.handleAnswer("") }],
+                { cancelable: false }
+              )}
           </ScrollView>
         </View>
       </Fragment>

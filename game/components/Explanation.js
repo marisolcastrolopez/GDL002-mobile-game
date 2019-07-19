@@ -8,11 +8,14 @@ export default class Explanation extends Component {
     // const { navigate } = this.props.navigation;
     return (
       <Fragment>
-      <View style={{marginTop: 50 }}>
-      <Button
-        title="Go to memorize 01"
-        onPress={() => {this.props.handleAnswer("memorize01")}}/>
-      </View>
+        <View style={{ marginTop: 50 }}>
+          <Button
+            title="Go to memorize 01"
+            onPress={() => {
+              this.props.handleAnswer("memorize01");
+            }}
+          />
+        </View>
       </Fragment>
     );
   }

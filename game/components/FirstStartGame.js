@@ -39,17 +39,17 @@ export default class FirstStartGame extends Component {
             resizeMode="contain"
           />
           {this.state.fontLoaded ? (
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: "#636863",
-                    fontFamily: "raleway",
-                    textAlign: "center",
-                  }}
-                >
-                  A game to test your brain!. {"\n"} Remember the color + the shape
-                </Text>
-              ) : null}
+            <Text
+              style={{
+                fontSize: 16,
+                color: "#636863",
+                fontFamily: "raleway",
+                textAlign: "center"
+              }}
+            >
+              A game to test your brain!. {"\n"} Remember the color + the shape
+            </Text>
+          ) : null}
           <TouchableOpacity
             style={styles.shadow}
             onPress={this.props.handleAnswer}
