@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Alert, } from "react-native";
 import GridGame from "./GridGame";
 import HeaderGradient from "./Header";
 import FirstScreen from "./FirstStartGame";
@@ -113,6 +113,14 @@ export default class GameSpa extends Component {
                   data={this.state.data[0]}
                   numColumns={this.state.numColumns[0]}
                 />
+                {/* {Alert.alert(
+                  "Whoops!",
+                  "Wrong Answer",
+                  [
+                    { text: "Go to home", onPress: () => this.handleAnswer("") }
+                  ],
+                  { cancelable: false }
+                )} */}
               </View>
             )}
             {this.state.userAnswer === "memorize01" && (
@@ -151,9 +159,14 @@ export default class GameSpa extends Component {
               )}
             {this.state.userAnswer === "fail" && (
               //Failure Page <--- Important default page for failure
-              <View>
-                <Text>Hola Perdiste</Text>
-              </View>
+                Alert.alert(
+                  "Whoops!",
+                  "Wrong Answer",
+                  [
+                    { text: "Go to home", onPress: () => this.handleAnswer("") }
+                  ],
+                  { cancelable: false }
+                )
             )}
           </ScrollView>
         </View>
@@ -166,6 +179,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
+    backgroundColor: "#f6f6f0"
   }
 });

@@ -6,7 +6,7 @@ const HeaderGradient = () => (
     colors={["#f0e38d", "#95f0d6"]}
     style={{
       padding: 15,
-      height: 75,
+      height: 50,
       alignItems: "center",
       borderRadius: 5,
       flex: 1,

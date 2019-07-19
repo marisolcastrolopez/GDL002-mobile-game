@@ -18,7 +18,6 @@ export default class MemorizeScreen extends Component {
     this.state = {
       count: 0,
       fontLoaded: false,
-      shape: [],
       colorOne: this.props.colorOne,
       colorTwo: this.props.colorTwo,
       shapeOne: this.props.shapeOne,
@@ -41,8 +40,6 @@ export default class MemorizeScreen extends Component {
     return (
       <Fragment>
         <View style={styles.container}>
-          <ScrollView>
-            <HeaderGradient />
             <View style={{ marginTop: 60 }}>
               {this.state.fontLoaded ? (
                 <Text
@@ -144,7 +141,6 @@ export default class MemorizeScreen extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-          </ScrollView>
         </View>
       </Fragment>
     );
@@ -156,7 +152,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#f6f6f0"
+    backgroundColor: "#f6f6f0",
   },
   row: {
     flex: 1,

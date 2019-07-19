@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from "react";
+import { Alert } from 'react-native'
 import {
   StyleSheet,
   Text,
@@ -9,6 +10,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import CountDown from "react-native-countdown-component";
+import * as Font from "expo-font";
 
 const formatData = (data, numColumns) => {
   let numberOfElementsLastRow = data.length % numColumns;
@@ -29,8 +31,16 @@ export default class GridGame extends Component {
 
     this.state = {
       count: 0,
+      fontLoaded: false,
       numColumns: this.props.numColumns
     };
+  }
+  async componentDidMount() {
+    await Font.loadAsync({
+      raleway: require("../assets/fonts/Raleway-Regular.ttf")
+    });
+
+    this.setState({ fontLoaded: true });
   }
 
   renderItem = ({ item }) => {
@@ -71,15 +81,28 @@ export default class GridGame extends Component {
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View> */}
-        {/* <CountDown
-          until={6}
-          size={30}
-          onFinish={() => this.props.setButton("fail")}
-          digitStyle={{ backgroundColor: "#FFF" }}
-          digitTxtStyle={{ color: "#1CC625" }}
-          timeToShow={["S"]}
-          timeLabels={{ s: "Seconds" }}
-        /> */}
+        {this.state.fontLoaded ? (
+          <TouchableOpacity style={styles.timerShadow}>
+            <CountDown
+              until={10}
+              size={20}
+              onFinish={() => this.props.handleAnswer("fail")}
+              digitStyle={{
+                height: 60,
+                width: 10,
+                backgroundColor: "transparent",
+                borderRadius: 400
+              }}
+              digitTxtStyle={{
+                color: "#636863",
+                fontFamily: "raleway",
+                backgroundColor: "transparent"
+              }}
+              timeToShow={["S"]}
+              timeLabels={{ s: null }}
+            />
+          </TouchableOpacity>
+        ) : null}
       </Fragment>
     );
   }
@@ -132,5 +155,16 @@ const styles = StyleSheet.create({
   },
   iconTransparent: {
     backgroundColor: "transparent"
+  },
+  timerShadow: {
+    shadowOffset: { width: 0, height: 6 },
+    shadowColor: "#000",
+    shadowOpacity: 0.39,
+    shadowRadius: 8.3,
+    elevation: 13,
+    backgroundColor: "white",
+    borderRadius: 400,
+    marginTop: 5,
+    marginBottom: 30
   }
 });

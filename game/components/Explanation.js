@@ -11,7 +11,6 @@ export default class Explanation extends Component {
       <View style={{marginTop: 50 }}>
       <Button
         title="Go to memorize 01"
-        // onPress={() => navigate("MemorizeScreen", { screen: MemorizeScreen })}
         onPress={() => {this.props.handleAnswer("memorize01")}}/>
       </View>
       </Fragment>
