@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from "react";
-import { Alert } from 'react-native'
+import { Alert } from "react-native";
 import {
   StyleSheet,
   Text,
@@ -81,28 +81,32 @@ export default class GridGame extends Component {
             {this.state.count !== 0 ? this.state.count : null}
           </Text>
         </View> */}
-        {this.state.fontLoaded ? (
-          <TouchableOpacity style={styles.timerShadow}>
-            <CountDown
-              until={10}
-              size={20}
-              onFinish={() => this.props.handleAnswer("fail")}
-              digitStyle={{
-                height: 60,
-                width: 10,
-                backgroundColor: "transparent",
-                borderRadius: 400
-              }}
-              digitTxtStyle={{
-                color: "#636863",
-                fontFamily: "raleway",
-                backgroundColor: "transparent"
-              }}
-              timeToShow={["S"]}
-              timeLabels={{ s: null }}
-            />
-          </TouchableOpacity>
-        ) : null}
+        <View style={[styles.row]}>
+          <View style={[styles.box]}>
+            {this.state.fontLoaded ? (
+              <TouchableOpacity style={styles.timerShadow}>
+                <CountDown
+                  until={10}
+                  size={20}
+                  onFinish={() => this.props.handleAnswer("fail")}
+                  digitStyle={{
+                    height: 60,
+                    width: 10,
+                    backgroundColor: "transparent",
+                    borderRadius: 400
+                  }}
+                  digitTxtStyle={{
+                    color: "#636863",
+                    fontFamily: "raleway",
+                    backgroundColor: "transparent"
+                  }}
+                  timeToShow={["S"]}
+                  timeLabels={{ s: null }}
+                />
+              </TouchableOpacity>
+            ) : null}
+          </View>
+        </View>
       </Fragment>
     );
   }
@@ -166,5 +170,19 @@ const styles = StyleSheet.create({
     borderRadius: 400,
     marginTop: 5,
     marginBottom: 30
+  },
+  row: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  box: {
+    flex: 1,
+    backgroundColor: "transparent",
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 5,
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
