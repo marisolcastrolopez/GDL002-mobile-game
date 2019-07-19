@@ -7,11 +7,9 @@ import {
   ScrollView,
   TouchableOpacity
 } from "react-native";
-// import FiguresCountdown from "./FiguresCountdown";
 import HeaderGradient from "../Header/Header";
 import CountDown from "react-native-countdown-component";
 import Icon from "react-native-vector-icons/AntDesign";
-import GameSpa from "../GameSpa/GameSpa";
 import * as Font from "expo-font";
 
 export default class MemorizeScreen extends Component {
@@ -21,7 +19,10 @@ export default class MemorizeScreen extends Component {
       count: 0,
       fontLoaded: false,
       shape: [],
-      color: []
+      colorOne: this.props.colorOne,
+      colorTwo: this.props.colorTwo,
+      shapeOne: this.props.shapeOne,
+      shapeTwo: this.props.shapeTwo,
     };
   }
   async componentDidMount() {
@@ -33,7 +34,10 @@ export default class MemorizeScreen extends Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation;
+    let colorOne = this.state.colorOne
+    let colorTwo = this.state.colorTwo
+    let shapeOne = this.state.shapeOne
+    let shapeTwo = this.state.shapeTwo
     return (
       <Fragment>
         <View style={styles.container}>
@@ -61,14 +65,14 @@ export default class MemorizeScreen extends Component {
                       fontFamily: "raleway",
                       textAlign: "center",
                       fontSize: 16,
-                      color: "#F972A1"
+                      color: colorOne
                     }}
                   >
                     Color
                   </Text>
                 ) : null}
                 {/* //First Icon---------------------------- */}
-                <Icon name="cloud" size={40} color="#F972A1" />
+                <Icon name={shapeOne} size={40} color={colorOne} />
               </View>
               <View style={[styles.box]}>
                 <Text style={[styles.centering, styles.invisible]}>No</Text>
@@ -81,14 +85,14 @@ export default class MemorizeScreen extends Component {
                       fontFamily: "raleway",
                       textAlign: "center",
                       fontSize: 16,
-                      color: "#77D8CD"
+                      color: colorTwo
                     }}
                   >
                     Shape
                   </Text>
                 ) : null}
                 {/* //Second Icon---------------------------- */}
-                <Icon name="star" size={40} color="#77D8CD" />
+                <Icon name={shapeTwo} size={40} color={colorTwo} />
               </View>
             </View>
             <View style={[styles.row]}>
@@ -98,8 +102,13 @@ export default class MemorizeScreen extends Component {
                     <CountDown
                       until={60}
                       size={20}
-                      onFinish={() => navigate("GameSpa", { screen: GameSpa })}
-                      digitStyle={styles.timerCircle}
+                      onFinish={this.props.handleAnswer}
+                      digitStyle={{
+                        height: 60,
+                        width: 60,
+                        backgroundColor: "transparent",
+                        borderRadius: 400
+                      }}
                       digitTxtStyle={{
                         color: "#636863",
                         fontFamily: "raleway",
@@ -112,7 +121,7 @@ export default class MemorizeScreen extends Component {
                 ) : null}
                 <TouchableOpacity
                   title="Skip time"
-                  onPress={() => navigate("GameSpa", { screen: GameSpa })}
+                  onPress={this.props.handleAnswer}
                   style={[styles.btnSkip]}
                 >
                   {this.state.fontLoaded ? (
@@ -188,12 +197,6 @@ const styles = StyleSheet.create({
   },
   invisible: {
     color: "transparent"
-  },
-  timerCircle: {
-    height: 60,
-    width: 60,
-    backgroundColor: "transparent",
-    borderRadius: 400
   },
   btnSkip: {
     backgroundColor: "#fff",

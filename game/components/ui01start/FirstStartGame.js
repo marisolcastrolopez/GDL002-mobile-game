@@ -1,19 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { Button, StyleSheet, View, Animated, Easing } from "react-native";
-import MemorizeScreen from "../ui02memorize/MemorizeScreen";
 // import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class FirstStartGame extends Component {
   render() {
-    // const { navigate } = this.props.navigation;
     return (
       <Fragment>
       <View style={{marginTop: 50 }}>
       <Button
         title="Start Game"
-        // onPress={() => navigate("MemorizeScreen", { screen: MemorizeScreen })}
-        onPress={()=> alert('hi')}
-      />
+        onPress={this.props.handleAnswer}/>
       </View>
       </Fragment>
     );
@@ -24,7 +20,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    // justifyContent: "center"
   },
   header: {
     height: 65,
